@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0053)https://www.personas.bancobcr.com/plantilla/index.asp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Banco de Costa Rica</title>
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="cache-control" value="no-cache, no-store, must-revalidate">
+<meta http-equiv="Expires" content="Mon, 01 Jan 1990 00:00:01 GMT">
+<link href="./Banco de Costa Rica2_files/transaccional.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.vinculo {
+font-family: Arial, Helvetica, sans-serif;
+color: red;
+text-decoration: none;
+}
+h1{
+	font-size: 14px;
+}
+
+.sbttn {
+    background: none repeat scroll 0 0 #FF3535;
+    border-color: #DF0000 #A80000 #A80000 #DF0000;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.black_overlay { /* afuera: la parte oscura */
+   background: #000000;
+   display: none;
+   position: absolute;
+   left: 0; top: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1001;
+   opacity: .50; /* opacidad para Firefox */
+   filter: alpha(opacity=50);  /* opacidad para Internet Explorer */
+}
+
+.white_content { /* adentro: la ventana modal */
+  background: #FFFFFF;
+  display: none;
+  position: absolute;
+  overflow: auto;
+  z-index:1002; 
+  left: 25%;  top: 20%; /* la posición de la ventana modal */
+  width: 55%; /*height: 60%; /* el tamaño de la ventana modal */
+  padding: 16px;
+  color: #333;
+  /* cualquier otra propeidad, colores, márgenes, fondo */
+}
+.modal_content {
+	border: 3px solid #022263;
+    display: none;
+    overflow: auto; -webkit-overflow-scrolling: touch;
+    padding: 0px;
+
+	position: absolute;
+    left: 50%;				/* Centrar */
+    top: 50%;				/* Centrar */
+    height: 480px;
+    margin-top: -240px;		/* height/2 */
+    width: 650px;
+    margin-left: -325px;	/* width/2 */
+
+    z-index: 1002;
+}
+/*pruebas de menu doble CSS: transaccional.css*/
+.body { background-image: url("/imagenes/bg_menu_doble.gif");}
+#subheader {height: 52px;}
+#subheader_red {height: 52px;}
+#subheader_line {background-image: url("/imagenes/subheader_line_52.gif"); height: 52px;}
+#subheader_bg {background-image: url("/imagenes/subheader_bg_52.jpg");height: 52px;}
+#menu_horizontal {height: 46px;}
+/*ul#tabnav li {width: 130px;}*/
+#header_col2 {width: 550px;}
+ul#tabnav {margin-bottom: 0; margin-top: -2px; line-height: 10px;}
+
+#header_col2_botones_superiores {height: 27px;}
+#header {height: 71px;}
+#header_logo {margin-top: 12px;}
+-->
+</style>
+
+
+<script language="javascript" src="./Banco de Costa Rica2_files/viewport.js.descarga" type="text/javascript"></script>
+<script language="javascript" src="./Banco de Costa Rica2_files/contenido.js.descarga" type="text/javascript"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function getTime(caracter)
+{
+  var iMilliSecDateTime = (new Date()).getTime();
+  return(caracter + "time=" + iMilliSecDateTime);
+}
+
+function DatosModal(datos,txt_titulo,alto,ancho,cerrar) 
+{ 
+	var aleatorio = Math.random();
+	var objModal = document.getElementById('nombreContenido'); 
+	var ifralto = 480
+	if (alto & ancho) { var ifralto = alto } 
+	contenido = "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tr><td>"
+	//contenido = contenido + "<table  bordercolor=\"#CFCFCF\" cellpadding=\"2\" cellspacing=\"0\" width=\"100%\" border=\"0\"><tr><td>"+(txt_titulo?"<h1><font color=\"#FFFFFF\">"+txt_titulo+"</font></h1>":"") +"</td><td width=\"1\" height=\"1\" align=\"right\"><a class=\"vinculo\" href = \"javascript:void(0)\" onclick=\"document.getElementById('nombreContenido').style.display='none'; document.getElementById('nombreContenedor').style.display='none';\"><img src=\"/imagenes/btn_cerrar.gif\" alt=\"Cerrar\" border=\"0\"></a></td></tr></table>";
+	//contenido = contenido + "<table  bordercolor=\"#CFCFCF\" cellpadding=\"2\" cellspacing=\"0\" width=\"100%\" border=\"0\"><tr><td width=\"100%\" bgcolor=\"#022263\">"+(txt_titulo?"<center><h1><font color=\"#FFFFFF\" >"+txt_titulo+"</font></h1><center>":"<h1>&nbsp;</h1>") +"</td><td width=\"1\" height=\"1\" align=\"right\"><a class=\"vinculo\" href = \"javascript:void(0)\" onclick=\"document.getElementById('nombreContenido').style.display='none'; document.getElementById('nombreContenedor').style.display='none';\"><table bgcolor=\"#FFFFFF\" cellpadding=\"0\" cellspacing=\"0\" width=\"1\" height=\"1\"><tr><td><font color=\"#FF0000\">&nbsp;X&nbsp;</font></td></tr></table></a></td></tr></table></td></tr>";
+	contenido = contenido + "<table  bordercolor=\"#CFCFCF\" cellpadding=\"2\" cellspacing=\"0\" width=\"100%\" border=\"0\"><tr><td width=\"100%\" bgcolor=\"#022263\">"+(txt_titulo?"<center><h1><font color=\"#FFFFFF\" >"+txt_titulo+"</font></h1><center>":"<h1>&nbsp;</h1>") +"</td></tr></table></td></tr>";
+	if (cerrar != 'NO') 
+	{ 
+	contenido = contenido + "<tr bgcolor=\"#FFFFFF\"><td><iframe scrolling='auto' width='100%' height='"+(ifralto-50)+"' name='modal' id='modal' frameborder='0' src='"+datos+"&nocahe="+aleatorio+"'>no frame</iframe></td></tr>"; 
+
+	contenido = contenido + "<tr bgcolor=\"#FFFFFF\"><td height=\"30px\"><center><input class=\"sbttn\" type=\"button\" onclick=\"document.getElementById('nombreContenido').style.display='none'; document.getElementById('nombreContenedor').style.display='none';\" value=\"Cerrar Ventana\"></center></td></tr>"
+	
+	} else {
+	contenido = contenido + "<tr bgcolor=\"#FFFFFF\"><td><iframe scrolling='auto' width='100%' height='"+(ifralto-20)+"' name='modal' id='modal' frameborder='0' src='"+datos+"&nocahe="+aleatorio+"'>no frame</iframe></td></tr>"; 
+	//contenido = contenido + "<tr bgcolor=\"#E8F4FF\"><td height=\"30px\"><center>&nbsp;</center></td></tr>"	
+	}
+	contenido = contenido + "</table>"
+    objModal.innerHTML = contenido;
+	objModal.style.top=null;
+  	objModal.style.left=null;
+  	objModal.style.right=null;
+	objModal.style.height=null;
+	objModal.style.marginTop=null;
+  	objModal.style.width=null;
+	objModal.style.marginLeft=null;
+
+	if (alto & ancho)
+	{
+		objModal.style.height=alto+'px';
+		objModal.style.marginTop='-'+(alto/2)+'px';
+	  	objModal.style.width=ancho+'px';
+		objModal.style.marginLeft='-'+(ancho/2)+'px';
+	}
+	
+	document.getElementById('nombreContenedor').style.display='block'; 
+	document.getElementById('nombreContenido').style.display='block';
+}
+
+//-->
+</script>
+</head>
+<body class="body">
+<div id="header">
+  <div id="header_logo">
+			
+                	<a title="Inicio" href="https://www.personas.bancobcr.com/ib_bcr/txns/productos/productos.asp" target="ifrm" onclick="ObtenerDatos(&#39;menu_datos_pers.asp?a=1&#39;,&#39;content_menu&#39;);">
+                    <img src="./Banco de Costa Rica2_files/logo.gif" alt="BCR Banco_de_Costa_Rica - Inicio" align="left" border="0"></a>
+                
+  </div>
+	<div id="header_col2">
+	    <div id="header_col2_botones_superiores">
+			
+                    <a title="Inicio" href="https://www.personas.bancobcr.com/ib_bcr/txns/productos/productos.asp" target="ifrm" onclick="ObtenerDatos(&#39;menu_datos_pers.asp?a=1&#39;,&#39;content_menu&#39;);">
+                    <img src="./Banco de Costa Rica2_files/inicio.png" alt="Inicio" height="31" border="0"></a>
+                    
+                    <a title="Donación" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbt09/nbt09_unidosxlosninos.asp" target="ifrm" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=80&#39;,&#39;content_menu&#39;);">
+                    <img src="./Banco de Costa Rica2_files/donacion.png" alt="Donación" height="31" border="0"></a>
+                    
+                    <a title="Personalizar" href="https://www.personas.bancobcr.com/ib_bcr/asp/CambioClave.asp" target="ifrm" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=20&#39;,&#39;content_menu&#39;);">
+                    <img src="./Banco de Costa Rica2_files/personalizar.png" alt="Personalizar" height="31" border="0"></a>
+                    
+                    <a title="Seguridad" href="https://www.personas.bancobcr.com/ib_bcr/txns/Clave_Dinamica/MenuCuentasTDing.asp" target="ifrm" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=30&#39;,&#39;content_menu&#39;);">
+                    <img src="./Banco de Costa Rica2_files/seguridad.png" alt="Seguridad" height="31" border="0"></a>
+                    
+                    <a title="Tipo de Cambio" href="javascript:DatosModal(&#39;/ib_bcr/txns/NBC01/NBC01.asp?a=0&#39;,&#39;&#39;);" target="_self" onclick="">
+                    <img src="./Banco de Costa Rica2_files/tipocambio.png" alt="Tipo de Cambio" height="31" border="0"></a>
+                    
+                    <a title="English" href="https://www.personas.bancobcr.com/plantilla/idioma.asp" target="ifrm" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=90000&#39;,&#39;content_menu&#39;);">
+                    <img src="./Banco de Costa Rica2_files/idioma.png" alt="English" height="31" border="0"></a>
+                    
+                    <a title="Imprimir" href="javascript:self.ifrm.focus();self.ifrm.print();" target="_self" onclick="">
+                    <img src="./Banco de Costa Rica2_files/imprimir.png" alt="Imprimir" height="31" border="0"></a>
+                    
+                    <a title="Salir" href="https://www.personas.bancobcr.com/plantilla/index.asp" target="_self" onclick="">
+                    <img src="./Banco de Costa Rica2_files/salir.png" alt="Salir" height="31" border="0"></a>
+                    
+		</div>
+		<div id="header_col2_tabs">
+			
+				<div class="header_col2_tabs_left"></div>
+				<div class="header_col2_tabs_center"><a title="SINPE Móvil" href="https://www.personas.bancobcr.com/ib_bcr/txns/Monedero_Bancario/MonederoBancario.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=90000&#39;,&#39;content_menu&#39;);" target="ifrm">SINPE Móvil</a></div>
+                <div class="header_col2_tabs_right"></div>
+				<div class="header_col2_tabs_division"></div>
+			
+				<div class="header_col2_tabs_left"></div>
+				<div class="header_col2_tabs_center"><a title="Cargos Automáticos" href="https://www.personas.bancobcr.com/ib_bcr/txns/CAR/CARing.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=210&#39;,&#39;content_menu&#39;);" target="ifrm">Cargos Automáticos</a></div>
+                <div class="header_col2_tabs_right"></div>
+				<div class="header_col2_tabs_division"></div>
+			
+				<div class="header_col2_tabs_left"></div>
+				<div class="header_col2_tabs_center"><a title="Tasaciones" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbt47/nbt47ing-MQ.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=70000&#39;,&#39;content_menu&#39;);" target="ifrm">Tasaciones</a></div>
+                <div class="header_col2_tabs_right"></div>
+				<div class="header_col2_tabs_division"></div>
+			
+		</div>	
+	</div>
+</div>
+<div id="subheader">
+	<div id="subheader_red"></div>
+	<div id="subheader_line"></div>
+		
+					<div id="subheader_bg"><div id="subheader_imgs"><img src="./Banco de Costa Rica2_files/subheader_title_oficinavirtual_52.gif" alt="Oficina Virtual" width="107" height="52"><img src="./Banco de Costa Rica2_files/subheader_dotline_52.gif"><img src="./Banco de Costa Rica2_files/subheader_title_personas_52.gif" alt="Personas"></div></div>
+				
+</div>
+<div id="menu_horizontal">
+	
+	<table width="100%" border="0" align="right" cellpadding="2" cellspacing="0">
+    <tbody><tr><td>
+	<ul id="tabnav">
+		<li class="inactivo" id="bt10000"><center><a title="Cuentas" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbc03/nbc03ing.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=10000&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt10000&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Cuentas</a></center></li>
+		<li class="activo" id="bt10001"><center><a title="Transferencias" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbt09/nbt09ing.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=10001&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt10001&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Transferencias</a></center></li>
+		<li class="inactivo" id="bt10002"><center><a title="SINPE" href="https://www.personas.bancobcr.com/ib_bcr/txns/SINPE/SINPETFT_CGP.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=10001&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt10002&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">SINPE</a></center></li>
+		<li class="inactivo" id="bt50000"><center><a title="Pagos de Servicios" href="https://www.personas.bancobcr.com/ib_bcr/servicios/servicios_ifrm.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=50000&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt50000&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Pagos de Servicios</a></center></li>
+		<li class="inactivo" id="bt20000"><center><a title="Tarjetas" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbc26/nbc26ing.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=20000&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt20000&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Tarjetas</a></center></li>
+		<li class="inactivo" id="bt30000"><center><a title="Créditos" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbcop/nbcoping.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=30000&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt30000&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Créditos</a></center></li>
+		<li class="inactivo" id="bt40000"><center><a title="Certificados" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbccc/nbcccing.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=40000&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt40000&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Certificados</a></center></li>
+
+	</ul>
+    </td></tr>
+    <!--<tr><td><img src="/images/spacer.gif" alt="Oficina Virtual" width="1" height="1"></td></tr>-->
+    <tr><td>
+	<ul id="tabnav">
+		<li class="inactivo" id="bt80500"><center><a title="Ahorros Automáticos" href="https://www.personas.bancobcr.com/ib_bcr/txns/AhorroAutomatico/ProgramaAhoAuto.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=80500&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt80500&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Ahorros Automáticos</a></center></li>
+		<li class="inactivo" id="bt80000"><center><a title="Depósitos Judiciales" href="https://www.personas.bancobcr.com/ib_bcr/txns/ExpedJudic/ExpedJudic.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=80000&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt80000&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Depósitos Judiciales</a></center></li>
+		<li class="inactivo" id="bt60200"><center><a title="BCR Pensiones" href="https://www.personas.bancobcr.com/dimsa/sap_estado.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=60200&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt60200&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">BCR Pensiones</a></center></li>
+		<li class="inactivo" id="bt60300"><center><a title="Fondos Inversión" href="https://www.personas.bancobcr.com/dimsa/sfi_estado.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=60300&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt60300&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Fondos Inversión</a></center></li>
+		<li class="inactivo" id="bt80600"><center><a title="Seguros" href="https://www.personas.bancobcr.com/ib_bcr/txns/Seguros/SegurosAutoExpedibles.asp" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=80600&#39;,&#39;content_menu&#39;); CambiarEstilo(&#39;bt80600&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);" target="ifrm">Seguros</a></center></li>
+
+	</ul>
+    </td></tr></tbody></table>
+	
+</div>
+<div id="content">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+      <td width="1%" valign="top"> 
+        <div id="content_menu">		<div class="content_menu_primario"><a title="Transferencias" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbt09/nbt09ing.asp" onclick="CambiarEstilo(&#39;sm_10500&#39;,&#39;div&#39;,&#39;div_m_activo&#39;,&#39;div_m_inactivo&#39;);" target="ifrm">Transferencias<em>&nbsp;</em></a></div>
+		<div class="content_menu_division"></div>
+		<div class="div_m_inactivo" id="sm_10500">
+			<div class="content_menu_secundario"><a title="Entre Cuentas" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbt09/nbt09ing.asp" target="ifrm">Entre Cuentas</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="De Tarjeta a Cuenta" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbt43/nbt43ing.asp" target="ifrm">De Tarjeta a Cuenta</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="Programación de Transferencias" href="https://www.personas.bancobcr.com/ib_bcr/txns/txnprog/txnprogcon.asp" target="ifrm">Programación de Transferencias</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="Consulta de Transferencias" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbc09/nbc09ing.asp" target="ifrm">Consulta de Transferencias</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="Consulta de Transferencias Recibidas" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbc11/nbc11ing.asp" target="ifrm">Consulta de Transferencias Recibidas</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="Consulta de Transferencias Enviadas" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbc10/nbc10ing.asp" target="ifrm">Consulta de Transferencias Enviadas</a></div>
+			<div class="content_menu_division"></div>
+		</div>
+		<div class="content_menu_primario"><a title="Transfer. SINPE" href="https://www.personas.bancobcr.com/ib_bcr/txns/SINPE/SINPETFT_CGP.asp" onclick="CambiarEstilo(&#39;sm_10600&#39;,&#39;div&#39;,&#39;div_m_activo&#39;,&#39;div_m_inactivo&#39;);" target="ifrm">Transfer. SINPE<em>&nbsp;</em></a></div>
+		<div class="content_menu_division"></div>
+		<div class="div_m_inactivo" id="sm_10600">
+			<div class="content_menu_secundario"><a title="Enviar Fondos (Tiempo Real)" href="https://www.personas.bancobcr.com/ib_bcr/txns/SINPE/SINPETFT_CGP.asp" target="ifrm">Enviar Fondos (Tiempo Real)</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="Enviar fondos(Créditos Directos)" href="https://www.personas.bancobcr.com/ib_bcr/txns/SINPE/SINPETCD.asp" target="ifrm">Enviar fondos(Créditos Directos)</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="Traer fondos" href="https://www.personas.bancobcr.com/ib_bcr/txns/SINPE/SINPEDTR.asp" target="ifrm">Traer fondos</a></div>
+			<div class="content_menu_division"></div>
+		</div>
+		<div class="content_menu_primario"><a title="Matrícula de Productos" href="https://www.personas.bancobcr.com/ib_bcr/txns/Clave_Dinamica/MenuCuentasTDing.asp" onclick="CambiarEstilo(&#39;sm_10510&#39;,&#39;div&#39;,&#39;div_m_activo&#39;,&#39;div_m_inactivo&#39;);" target="ifrm">Matrícula de Productos<em>&nbsp;</em></a></div>
+		<div class="content_menu_division"></div>
+		<div class="div_m_inactivo" id="sm_10510">
+			<div class="content_menu_secundario"><a title="Cuentas Terceros BCR" href="https://www.personas.bancobcr.com/ib_bcr/txns/Clave_Dinamica/MatriculaCuentasIng.asp" target="ifrm">Cuentas Terceros BCR</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="Cuentas Cliente SINPE" href="https://www.personas.bancobcr.com/ib_bcr/txns/Clave_Dinamica/MatriculaCuentasSINPEIng.asp" target="ifrm">Cuentas Cliente SINPE</a></div>
+			<div class="content_menu_division"></div>
+			<div class="content_menu_secundario"><a title="Cuentas Propias SINPE" href="https://www.personas.bancobcr.com/ib_bcr/txns/Clave_Dinamica/MatriculaCuentasSINPEPropiasIng.asp" target="ifrm">Cuentas Propias SINPE</a></div>
+			<div class="content_menu_division"></div>
+		</div>
+		<div class="content_menu_primario"><a title="Consulta Cuenta Cliente IBAN" href="https://www.personas.bancobcr.com/ib_bcr/txns/nbc03/CuentaCliente.asp" target="ifrm">Consulta Cuenta Cliente IBAN</a></div>
+		<div class="content_menu_division"></div>
+</div>
+</td>
+<td valign="top">
+	<!--<div id="content_subcontent">-->
+	<table width="99%" border="0" cellspacing="1" cellpadding="0" class="subcontent_table" align="center"><tbody><tr><td>
+
+		<iframe width="100%" height="100%" name="ifrm" id="ifrm" frameborder="0" src="./Banco de Costa Rica2_files/MensajeBienvenida.html" style="width: 100%; height: 618px; margin-top: 1px;">no frame</iframe>
+	
+	</td></tr></tbody></table>	
+	<!--</div>-->
+	<script type="text/javascript">
+		function setIframe() {
+		  var theIframe = document.getElementById? document.getElementById('ifrm'): document.all? document.all['ifrm']: null;
+		  if (theIframe) {
+		    viewport.getWinHeight();
+		    theIframe.style.width = "100%";
+		    theIframe.style.height = viewport.height + "px";
+			theIframe.style.marginTop = 1 + "px";
+		  }
+		}
+		function setIframe2() {
+		  var theIframe = document.getElementById? document.getElementById('ifrm2'): document.all? document.all['ifrm2']: null;
+		  if (theIframe) {
+		    viewport.getWinHeight();
+		    //theIframe.style.width = "100%";
+		    theIframe.style.height = viewport.height + "px";
+			theIframe.style.marginTop = 1 + "px";
+		  }
+		}
+		setIframe();
+		setIframe2();
+		window.onresize = function() { setIframe() ;  setIframe2() }
+	</script>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+	<div id="footer"><font color="#666666">.60</font>&nbsp;&nbsp;BCR © Derechos Reservados 2018. Contáctenos: <a class="link_claro" href="mailto:CentroAsistenciaBCR@bancobcr.com">CentroAsistenciaBCR@bancobcr.com</a></div>
+
+
+<div id="nombreContenedor" class="black_overlay"></div>
+<div id="nombreContenido" class="modal_content">
+</div>
+  
+
+</body></html>

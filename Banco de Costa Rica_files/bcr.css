@@ -1,0 +1,636 @@
+/* Hoja de Estilos */
+/* Banco de Costa Rica */
+/* Autor: InterGraphicDESIGNS */
+
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+p {
+	color:#000000;
+	font-size: 12px;
+}
+
+
+ul {
+	list-style-image: url(../images/rombo.gif);	
+	font-size: 12px;	
+}
+
+ol {
+	color:#FF0000;
+	font-size: 12px;
+}
+a {
+	text-decoration: none;	
+	color:#ff0000;
+}
+a:hover {
+	text-decoration: underline;
+	color: #008ABB;
+}
+
+
+/************ TITULOS **************/
+
+h1 {
+	color: #012363;
+	font-size: 18px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+h2 {
+	color: #045693;
+	font-size: 13px;
+	margin-top: 4px;
+	margin-bottom: 0px;
+}
+h2 a{
+	color: #012363;
+	text-decoration: none;
+}
+
+h3 {
+	color: #1383A8;
+	font-size: 12px;
+	margin-top: 4px;
+	margin-bottom: 0px;
+	font-weight: normal;	
+}
+
+/************ HEADER **************/
+
+#header {
+	width: 940px;
+	height: 78px;
+}
+#header_logo {
+	margin-left: 22px;
+	margin-top: 18px;
+	width: 283px;
+	height: 60px;
+	float: left;
+	display: inline;
+}
+#header_menu_superior {
+	width: 635px;
+	height: 78px;
+	float: left;
+}
+#header_menu_superior_row1 {
+	width: 635px;
+	height: 55px;
+}
+.header_vineta {
+	margin-left: 10px;
+}
+
+#header_menu_superior_row2 {
+	width: 635px;
+	height: 23px;
+	float: left;
+}
+#header_tabs {
+	width: 970px;
+}
+#header_tabs_transaccional {
+	background-image: url(../images/bg_tabs.jpg);
+	background-repeat: no-repeat;
+	width: 428px;
+	height: 22px;
+	padding-top: 1px;
+	float: left;
+}
+
+.header_tabs_transaccional_acceso {
+	margin-left: 10px;
+	
+}
+.header_tabs_transaccional_personas {
+	margin-left: 29px;
+	color: #012363;
+}
+.header_tabs_transaccional_empresas {
+	margin-left: 28px;
+	color: #012363;
+}
+.header_tabs_transaccional_personas a {
+	color: #0F177A;
+	text-decoration: underline;
+	font-size: 18px;
+}
+.header_tabs_transaccional_empresas a {
+	color: #0F177A;
+	text-decoration: underline;
+	font-size: 18px;
+}
+.header_tabs_transaccional_personas a:hover {
+	color: #008ABB;
+}
+.header_tabs_transaccional_empresas a:hover {
+	color: #008ABB;
+}
+
+/* Ingles */
+
+#header_tabs_transaccional_in {
+	background-image: url(../images/bg_tabs_in.jpg);
+	background-repeat: no-repeat;
+	width: 428px;
+	height: 22px;
+	padding-top: 1px;
+	float: left;
+}
+.header_tabs_transaccional_personas_in {
+	margin-left: 22px;
+	color: #012363;
+}
+.header_tabs_transaccional_empresas_in {
+	margin-left: 22px;
+	color: #012363;
+}
+.header_tabs_transaccional_personas_in a {
+	color: #0F177A;
+	text-decoration: underline;
+	font-size: 18px;
+}
+.header_tabs_transaccional_empresas_in a {
+	color: #0F177A;
+	text-decoration: underline;
+	font-size: 18px;
+}
+.header_tabs_transaccional_personas_in a:hover {
+	color: #008ABB;
+}
+.header_tabs_transaccional_empresas_in a:hover {
+	color: #008ABB;
+}
+
+/********************************/
+#header_tabs_left {
+	background-image: url(../images/tabs_left.jpg);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 23px;
+	float: left;
+}
+#header_tabs_center {
+	background-image: url(../images/tabs_center_bg.jpg);
+	background-repeat: repeat-x;
+	padding-top: 6px;
+	height: 17px;
+	float: left;
+	font-weight: bold;
+}
+#header_tabs_right {
+	background-image: url(../images/tabs_right.jpg);
+	background-repeat: no-repeat;
+	width: 10px;
+	height: 23px;
+	float: left;
+}
+#subheader {
+	clear: both;
+	width: 970px;
+	height: 63px;
+}
+#subheader_red_esp {
+	width: 244px;
+	height: 63px;
+	float: left;
+	background-color: #FF0000;
+	background-image: url(../images/slogan_esp.jpg);
+}
+#subheader_red_ing {
+	width: 244px;
+	height: 63px;
+	float: left;
+	background-color: #FF0000;
+	background-image: url(../images/slogan_ing.jpg);
+}
+#subheader_div {
+	width: 17px;
+	height: 63px;
+	float: left;
+	background-image: url(../images/subheader_div.jpg);
+	background-repeat:no-repeat;
+}
+#subheader_blue {
+	width: 679px;
+	height: 63px;
+	float: left;
+	background-image: url(../images/subheader_blue.jpg);
+	background-repeat:no-repeat;
+}
+
+/******* MENU HORIZONTAL *********/
+
+#menu_horizontal {
+	width: 940px;
+	height: 24px;
+	padding-left: 15px;
+	padding-top: 10px;
+}
+#menu_horizontal a {
+	color: #FFFFFF;
+	margin-right: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+}
+#menu_horizontal a:hover {
+	text-decoration: underline;
+	font-weight: bold;
+}
+#menu_horizontal_fecha {
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-right: 490px;
+}
+#menu_horizontal_fecha_in {
+    color: #FFFFFF;
+    font-weight: bold;
+    margin-right: 490px;
+}
+
+/************ FORMS **************/
+
+form {
+	margin-top: 5px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+/************ GENERALES ***********/
+
+.right {
+	text-align: right;
+}
+
+/************  CONTENT   **********/
+
+#content {
+	width: 940px;
+	background-color: #FFFFFF;
+	margin-top: 7px;
+}
+#content_col1{
+	width: 212px;
+	float: left;
+	background-image: url(../images/bg_content_col1.jpg);
+	background-repeat:repeat-y;
+}
+#content_col2 {
+	width: 518px;
+	padding-left: 3px;
+	padding-right: 2px;
+	padding-top: 2px;
+	float: left;
+	background-image: url(../images/bg_content_col2.jpg);
+	background-repeat: repeat-x;
+	background-color: #F8F8F8;
+}
+#content_col2_text {
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	padding: 5px 5px 5px 5px;
+}
+#content_col3 {
+	width: 205px;
+	float: left;
+}
+
+/************  MENU   **********/
+
+#menu {
+	border: 1px solid #DEDEDE;
+	background-color: #FFFFFF;
+	margin: 5px 10px 5px 10px;
+}
+.menu_title {
+	background-image: url(../images/bg_menu_title.jpg);
+	background-repeat: no-repeat;
+	height: 26px;
+	border-bottom: 1px solid #FF0000;
+	padding-top: 2px;
+	padding-left: 40px;
+}
+
+.menu_subtitle {
+	background-image: url(../images/bg_menu_subtitle.jpg);
+	background-repeat: no-repeat;
+	height: 18px;
+	border-bottom: 1px dashed #CCCCCC;
+	padding-top: 7px;
+	padding-left: 25px;
+	color: #045693;
+	font-weight: bold;
+}
+
+.menu_subtitle a{
+	color: #045693;
+	text-decoration: none;
+}
+.menu_option {
+	background-image: url(../images/bg_menu_option.jpg);
+	background-repeat: no-repeat;
+	border-bottom: 1px dashed #CCCCCC;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 25px;
+	padding-right: 3px;
+	color: #021054;
+	line-height: normal;
+}
+.menu_option a{
+	color: #021054;
+	text-decoration: none;
+}
+.menu_option_level2 {
+	background-image: url(../images/bg_menu_option_level2.jpg);
+	background-repeat: no-repeat;
+	background-color: #FBFBFB;
+	border-bottom: 1px dashed #CCCCCC;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 34px;
+	padding-right: 3px;
+	color: #006699;
+	line-height: normal;
+}
+.menu_option_level2 a{
+	color: #006699;
+	text-decoration: none;
+}
+.menu_option_level3 {
+	background-image: url(../images/bg_menu_option_level3.jpg);
+	background-repeat: no-repeat;
+	border-bottom: 1px dashed #E8E8E8;
+	background-color: #FBFBFB;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 42px;
+	padding-right: 3px;
+	color: #007BB7;
+	line-height: normal;
+}
+.menu_option_level3 a{
+	color: #007BB7;
+	text-decoration: none;
+}
+.menu_option_level4 {
+	border-bottom: 1px dashed #F0F0F0;
+	background-color: #FEFEFE;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 50px;
+	padding-right: 3px;
+	color: #008BCE;
+	line-height: normal;
+}
+.menu_option_level4 a{
+	color: #008BCE;
+	text-decoration: none;
+}
+/**********  CONVENIOS   **********/
+
+#convenios {
+	border: 1px solid #DEDEDE;
+	background-color: #FFFFFF;
+	margin: 0px 10px 5px 10px;
+}
+.convenios_title {
+	background-image: url(../images/bg_menu_title.jpg);
+	background-repeat: no-repeat;
+	height: 21px;
+	border-bottom: 1px solid #FF0000;
+	padding-top: 7px;
+	padding-left: 40px;
+	color: #045693;
+	line-height: 11px;
+	font-weight: bold;
+}
+#convenios_list {
+	text-align:center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#convenios_list select {
+    width: 160px;
+    font-size: 11px;
+}
+
+/**********  ALIANZAS   **********/
+
+#alianzas {
+	margin-left: 6px;
+}
+
+/********* TIPO CAMBIO ***********/
+
+#tipocambio {
+	border: 1px solid #CCCCCC;
+	margin-left: 6px;
+	margin-right: 9px;
+}
+#tipocambio_table {
+	font-size: 11px;
+	color: #666666;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.tipocambio_currency {
+	font-size: 10px;
+	color: #0261A6;
+}
+
+/********* SUCURSALES ***********/
+
+#oficinas {
+	border: 1px solid #CCCCCC;
+	margin-left: 6px;
+	margin-right: 9px;
+	margin-top: 4px;
+}
+#oficinas_table {
+	font-size: 11px;
+	color: #666666;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+/****** PIE DE PAGINA ******/
+
+#bottom_barragris {
+	margin-top: 2px;
+	padding-top: 4px;
+	height: 20px;
+	background-color: #999999;
+	border-bottom: 1px solid #CCCCCC;
+	color: #FFFFFF;
+}
+
+#bottom_barragris a{
+	color: #FFFFFF;
+}
+#bottom_barragris_text {
+	margin-left: 5px;
+}
+#bottom {
+	width: 940px;
+	margin-top: 7px;
+	margin-left: 7px;
+	margin-right: 7px;
+	line-height:  18px;
+}
+.copyright {
+	font-size: 9px;
+	color: #999999;
+}
+
+/********* OTROS ***********/
+.right_boxes {
+	border: 1px solid #E5E5E5;
+	background-image: url(../images/bg_right_boxes.jpg);
+	background-repeat: repeat-x;
+	background-color: #F8F8F8;
+	padding: 4px 4px 4px 4px;
+	font-size: 11px;
+}
+#right_images {
+	margin-left: 6px;
+	margin-right: 9px;
+}
+
+/********* TAMAÑOS ***********/
+
+.size11 {
+	font-size: 11px;
+}
+
+/********* COLORES ***********/
+
+.lightblue {
+	color: #0261A6;
+}
+.red {
+	color: #FF0000;
+}
+
+/******* ALINEAMIENTOS ******/
+
+.left {
+	text-align: left;
+}
+.center {
+	text-align: center;
+}
+.right {
+	text-align: right;
+}
+
+/********** CLEAR ***********/
+
+.clear {
+	clear: both;
+	display: block;
+	height: 1px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+
+.oficinas_table{
+	border-bottom: 1px dashed #CCCCCC;
+	color: #1383A8;
+}
+
+/*********** MIGAS ************/
+
+.migas {
+	font-size: 10px;
+	color:#ff0000;
+}
+
+/*********** Buscador ************/
+
+.buscador {
+	color: #1383A8;
+	font-size: 12px;
+	margin-top: 4px;
+	margin-bottom: 0px;
+	font-weight: normal;
+}
+
+.black{
+	color:#000000;
+}
+
+/****/
+.cell1 {
+	background-color: #002362;
+	color:#ffffff;
+		font-size: 12px;
+}
+
+.cell2 {
+	background-color: #D7E9FD;
+		font-size: 12px;
+}
+
+.cell3 {
+	background-color: #E8F4FF;
+		font-size: 12px;
+}
+
+/************** Mapa del Sitio ****************/
+
+.menu_option_level2_mapa {
+	background-image: url(../images/bg_menu_option_level2.jpg);
+	background-repeat: no-repeat;
+	border-bottom: 1px dashed #E8E8E8;
+	background-color: #FBFBFB;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 34px;
+	padding-right: 3px;
+	color: #006699;
+	line-height: normal;
+}
+.menu_option_level2_mapa  a{
+	color: #006699;
+	text-decoration: none;
+}
+.menu_option_level3_mapa  {
+	background-image: url(../images/bg_menu_option_level3.jpg);
+	background-repeat: no-repeat;
+	background-color: #FBFBFB;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 42px;
+	padding-right: 3px;
+	color: #007BB7;
+	line-height: normal;
+}
+.menu_option_level3_mapa a{
+	color: #007BB7;
+	text-decoration: none;
+}
+.menu_option_level4_mapa {
+	background-color: #FEFEFE;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 50px;
+	padding-right: 3px;
+	color: #008BCE;
+	line-height: normal;
+}
+.menu_option_level4_mapa a{
+	color: #008BCE;
+	text-decoration: none;
+}

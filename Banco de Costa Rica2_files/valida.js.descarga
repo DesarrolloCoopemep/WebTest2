@@ -1,0 +1,806 @@
+<!--
+//Adaptada por: Veronica Blanco
+
+//Note Netscape bug:
+//  eField attributes that are not defined for a given element type
+//  will contain the value of the previous element for which this
+//  attribute was defined.
+//Note IE bug:
+//  eField.type not supported.
+
+
+var bNetscape;
+if (navigator.appName == "Netscape")
+  bNetscape = true;
+else
+  bNetscape = false;
+
+//======================================================================
+
+function isDigit(digito)
+{
+ var i;
+ var valor;
+ 
+ valor = true; 
+ for (i = 0;  i < digito.length;  i++)
+  {
+    ch = digito.charAt(i);
+    if (ch!="0" && ch!="1" && ch!="2" && ch!="3" && ch!="4" && ch!="5" && ch!="6" && ch!="7" && ch!="8" && ch!="9")
+    {
+       valor = false;
+    }	
+  }	
+return valor;	
+}//isDigit
+
+//======================================================================
+
+function isZero(Monto){
+ var Limite;
+ var ch;
+ var i;
+
+ Limite = Monto.length;
+ for (i = 0;  i < Limite;  i++) {
+    ch = Monto.charAt(i);
+    if(ch!="0" && ch!="," && ch!="."){
+	return false;
+    }
+ }  	
+
+ return true;
+}//isZero
+
+//======================================================================
+
+function isMonto(sField)
+{
+ var i;
+ var valor;
+ var ch;
+ 
+
+ valor = true; 
+ for (i = 0;  i < sField.value.length;  i++)
+ {
+    ch = sField.value.charAt(i);
+    if (ch!="0" && ch!="1" && ch!="2" && ch!="3" && ch!="4" && ch!="5" && ch!="6" && ch!="7" && ch!="8" && ch!="9" && ch!="." && ch!="," && ch!=" ")
+    {
+       valor = false;      
+    }	
+ }
+return valor;	
+}//isMonto
+
+//======================================================================
+
+function isDate01(sField)
+{
+// fecha formato mm/dd/aaaa o mmddaaaa
+ var i;
+ var valor;
+ var ch;
+ var sMes;
+ var sDia;
+ var sAno;
+ var iDia;
+ var iMes;
+
+ valor = true;
+
+ for (i = 0;  i < sField.value.length;  i++) // Valida caracteres correctos
+ {
+    ch = sField.value.charAt(i);
+    if (ch!="0" && ch!="1" && ch!="2" && ch!="3" && ch!="4" && ch!="5" && ch!="6" && ch!="7" && ch!="8" && ch!="9" && ch!="/")
+    {
+       return false;      
+    }	
+ }	
+ if (sField.value.length == 10) // Valida la longitud
+    {
+	if ((sField.value.charAt(2) != "/" ) || (sField.value.charAt(5) != "/" )) // Valida caracteres "/"
+       {
+          return false;      
+       }
+	else
+	   {
+ 	     sMes = sField.value.substring(3,5); // mm
+ 	     sDia = sField.value.substring(0,2); // dd
+ 	     sAno = sField.value.substring(6,10); // yyyy
+	   }
+    }
+ if (sField.value.length == 8)
+ {
+    sMes = sField.value.substring(2,4); // mm
+    sDia = sField.value.substring(0,2); // dd
+    sAno = sField.value.substring(4,8); // yyyy
+ }
+ if (!(sField.value.length == 10 || sField.value.length == 8))
+ {
+    return false;
+ }
+
+ // Valida el día, mes y año
+ if (!(isDigit(sMes) && isDigit(sDia) && isDigit(sAno)))
+ {
+    return false;
+ }
+ iDia = parseInt(sDia,10);
+ iMes = parseInt(sMes,10);
+ if (iMes > 12 || iMes < 1 || iDia < 1)
+ {
+    return false;
+ }
+ if (iDia > 29 && iMes == 2)
+ {
+    return false;
+ }
+ if (iDia > 30) 
+ {
+    if (iMes == 4 || iMes == 6 || iMes == 9 || iMes == 11)
+    {
+       return false;
+    }
+ }
+ if (iDia > 31) 
+ {
+    if (iMes == 1 || iMes == 3 || iMes == 5 || iMes == 7 || iMes == 8 || iMes == 10 || iMes == 12)
+    {
+       return false;
+    }
+ }
+ return true;
+}//isDate
+
+//======================================================================
+
+function isDate03(sField)
+{
+// fecha formato mm/dd/aa o mmddaa
+ var i;
+ var valor;
+ var ch;
+ var sMes;
+ var sDia;
+ var sAno;
+ var iDia;
+ var iMes;
+
+ valor = true;
+
+ for (i = 0;  i < sField.value.length;  i++) // Valida caracteres correctos
+ {
+    ch = sField.value.charAt(i);
+    if (ch!="0" && ch!="1" && ch!="2" && ch!="3" && ch!="4" && ch!="5" && ch!="6" && ch!="7" && ch!="8" && ch!="9" && ch!="/")
+    {
+       return false;      
+    }	
+ }	
+ if (sField.value.length == 8) // Valida la longitud
+    {
+	if ((sField.value.charAt(2) != "/" ) || (sField.value.charAt(5) != "/" )) // Valida caracteres "/"
+       {
+          return false;      
+       }
+	else
+	   {
+ 	     sMes = sField.value.substring(3,5); // mm
+ 	     sDia = sField.value.substring(0,2); // dd
+ 	     sAno = sField.value.substring(6,8); // yy
+	   }
+    }
+ if (sField.value.length == 6)
+ {
+    sMes = sField.value.substring(2,4); // mm
+    sDia = sField.value.substring(0,2); // dd
+    sAno = sField.value.substring(4,6); // yyyy
+ }
+ if (!(sField.value.length == 8 || sField.value.length == 6))
+ {
+    return false;
+ }
+
+ // Valida el día, mes y año
+ if (!(isDigit(sMes) && isDigit(sDia) && isDigit(sAno)))
+ {
+    return false;
+ }
+ iDia = parseInt(sDia,10);
+ iMes = parseInt(sMes,10);
+ if (iMes > 12 || iMes < 1 || iDia < 1)
+ {
+    return false;
+ }
+ if (iDia > 29 && iMes == 2)
+ {
+    return false;
+ }
+ if (iDia > 30) 
+ {
+    if (iMes == 4 || iMes == 6 || iMes == 9 || iMes == 11)
+    {
+       return false;
+    }
+ }
+ if (iDia > 31) 
+ {
+    if (iMes == 1 || iMes == 3 || iMes == 5 || iMes == 7 || iMes == 8 || iMes == 10 || iMes == 12)
+    {
+       return false;
+    }
+ }
+ return true;
+}//isDate
+
+//======================================================================
+
+
+
+function isNull(sField)
+{
+ var valor;
+ 
+ valor = false;
+
+   if(sField.value.length==0)
+   {
+      valor = true;
+   }
+   return valor;
+}//isNull
+
+//======================================================================
+
+function validateField(eField, iField)
+{
+  var sResult = "";
+  var i;
+  var ch;
+  var sDateNoMask = "";
+   
+
+  if (eField.requiredType == "required")
+  {
+    if (isNull(eField))
+    sResult = "El campo debe contener algún valor";
+  }
+//  if ((eField.dataType == null) || (eField.dataType == "") || (eField == null))
+//  {
+//    return true;
+//  }
+  
+  // Valdiación del campo por tipo:
+  // currency
+  // percent
+  // date01
+  // unsignedInteger
+
+
+
+  if (eField.dataType == "currency" || eField.dataType == "unsignedCurrency")
+  {
+    if (eField.requiredType == "required")
+	{
+	  if (isNull(eField) || (isZero(eField.value)))
+	    sResult = "El campo debe contener algún valor";
+    }
+    if (eField.value != "" && sResult == "")
+      if (!(isMonto(eField)) && (sResult == ""))
+          sResult = "El campo debe contener algún valor correcto";
+  }
+  if (eField.dataType == "percent")
+  {
+    if (eField.requiredType == "required")
+	{
+	  if (isNull(eField))
+	    sResult = "El campo debe contener algún valor";
+    }
+    if (eField.value != "" && sResult == "")
+	  {
+        if (!(isDigit(eField.value)) && (sResult == ""))
+          sResult = "El campo debe contener algún valor correcto";
+	    if (parseInt(eField.value,10) > 100)
+	      sResult = "El valor debe ser menor o igual a 100";
+	  }
+  }
+
+ if (eField.dataType == "cuenta8")
+  {
+    if (eField.value != "" && sResult == "")
+	{
+      if (!(isDigit(eField.value)) && (sResult == ""))
+        sResult = "El campo debe contener algún valor correcto";
+	}
+  }
+
+
+  if (eField.dataType == "date01")
+  {
+    if (eField.requiredType == "required")
+	{
+	  if (isNull(eField))
+	    sResult = "El campo debe contener algún valor";
+         }
+    if (eField.value != "" && sResult == "")
+      if (!(isDate01(eField)) && (sResult == ""))
+        sResult = "Campo inválido";
+
+    for (i = 0;  i < eField.value.length;  i++) // Valida caracteres correctos
+    {
+      ch = eField.value.charAt(i);
+      if (ch != "/") 
+        sDateNoMask = sDateNoMask + ch;
+    }	
+	eField.value = sDateNoMask;
+   }
+
+  if (eField.dataType == "date03")
+  {
+    if (eField.requiredType == "required")
+	{
+	  if (isNull(eField))
+	    sResult = "El campo debe contener algún valor";
+    }
+    if (eField.value != "" && sResult == "")
+      if (!(isDate03(eField)) && (sResult == ""))
+        sResult = "Campo inválido";
+
+    for (i = 0;  i < eField.value.length;  i++) // Valida caracteres correctos
+    {
+      ch = eField.value.charAt(i);
+      if (ch != "/") 
+        sDateNoMask = sDateNoMask + ch;
+    }	
+	eField.value = sDateNoMask;
+  }
+
+  if (eField.dataType == "unsignedInteger")
+  {
+    if (eField.requiredType == "required")
+	{
+	  if (isNull(eField))
+	    sResult = "El campo debe contener algún valor";
+    }
+    if (eField.value != "" && sResult == "")
+	{
+      if (!(isDigit(eField.value)) && (sResult == ""))
+        sResult = "El campo debe contener algún valor correcto";
+	}
+  }
+  if (sResult == "")
+    return true;
+//  applyFormats(eField.form);
+  if (eField.label == null)
+    eField.label = fieldValue;
+    
+  var Etiqueta;
+  if (eField.label == 'DnoBenef') {
+  	Etiqueta = 'Beneficiario';
+  } else {
+  	Etiqueta = eField.label;
+  }
+  
+  //"\nCampo: " + eField.label +
+  alert("\nError en la Validación del Campo \n" +
+        "\nCampo: " + Etiqueta +
+        "\nProblema: " + sResult);
+
+  eField.focus();
+  eField.select();
+  return false;
+
+//Debug:
+
+}//validateField
+
+//======================================================================
+
+
+//======================================================================
+function validateForm(theForm)
+
+{
+  var bValid;
+
+  var cElements = theForm.elements.length;
+  var iField;
+  stripFormats(theForm);
+
+  for (iField = 0; iField < cElements; iField++)
+  {
+    eField = theForm.elements[iField];
+
+    //Debug:
+    //alert("\nValidate Form - Form element:" +
+    //      "\nname         = " + eField.name +
+    //      "\ntype         = " + eField.type +
+    //      "\nlabel        = " + eField.label +
+    //      "\ndataType     = " + eField.dataType +
+    //      "\nrequiredType     = " + eField.requiredType +
+    //      "\nvalue        = " + eField.value +
+    //      "\nlength       = " + eField.length);
+
+    //Ignore checkboxes and radio buttons that are not selected:
+    bValid = validateField(eField, iField);
+    if (bValid == false)
+      return false;
+  }
+  return true;
+}//validateFields
+
+//======================================================================
+//Función  que obtiene la fecha del computador.
+//Realizada por: Veronica Blanco
+//Fecha : 08/11/2001
+
+function getTodaysDate(eField) {
+
+var now = new Date();
+var dia = now.getDate();
+var mes = now.getMonth();
+var ano = now.getYear();
+var sano;
+var sdia;
+var smes;
+var fecha;
+var bNetscape;
+var imes;
+      
+     sano = String(ano);
+     sdia = String(dia);
+     smes = String(mes);
+     //0=Enero 1=Febrero ... 11=Noviembre
+     imes = parseInt(smes);
+     imes = imes + 1;
+     smes = String(imes);
+     fecha = String(fecha);
+    
+  
+    if (eField == 'date03') 
+      {        
+
+	if (sdia.length == 1) 
+            sdia = "0" + sdia;
+        if (smes.length == 1)
+            smes = "0" + smes;  
+
+	if (navigator.appName == "Netscape") 
+	  sano = sano.substr(1);
+	else 
+	  sano = sano.substr(2); 	    
+
+        fecha = sdia +  smes + sano;
+	eField = fecha;         
+	return eField; 
+        }  
+}
+
+//======================================================================
+
+function onblurCta(cuenta)
+{
+   cuenta.value  = formatoCuenta9(cuenta.value);
+   applyFormat(cuenta);
+}
+
+//======================================================================
+
+function oficinas()
+{
+   window.open("../../../Securehtm/oficinas.htm","oficinas","menubar=no,status=no,scrollbars=yes,resizable=no,width=300,height=300");
+}
+
+//======================================================================
+
+function validaCtaOfic()
+{
+	document.theForm.Oficina.value = formatoOficina(document.theForm.Oficina.value);
+	document.theForm.AcctNbr1.value = buildAccount(document.theForm.Concepto.value, document.theForm.Oficina.value, document.theForm.Cuenta.value); 
+}
+
+function validaCtaTranf()
+{
+   document.theForm.Oficina1.value = formatoOficina(document.theForm.Oficina1.value);
+   document.theForm.Oficina2.value = formatoOficina(document.theForm.Oficina2.value);
+   document.theForm.Oficina3.value = formatoOficina(document.theForm.Oficina3.value);
+   document.theForm.Oficina4.value = formatoOficina(document.theForm.Oficina4.value);
+
+   document.theForm.AcctNbr1.value = buildAccount(document.theForm.Concepto1.value, document.theForm.Oficina1.value, document.theForm.Cuenta1.value);
+   document.theForm.AcctNbr2.value = buildAccount(document.theForm.Concepto2.value, document.theForm.Oficina2.value, document.theForm.Cuenta2.value);
+   document.theForm.AcctNbr3.value = buildAccount(document.theForm.Concepto3.value, document.theForm.Oficina3.value, document.theForm.Cuenta3.value);
+   document.theForm.AcctNbr4.value = buildAccount(document.theForm.Concepto4.value, document.theForm.Oficina4.value, document.theForm.Cuenta4.value);
+}
+//======================================================================
+
+function aplicarPWB227()
+{
+  document.theForm.method="POST";
+  document.theForm.action="../../../securebin/navwebdll.dll/webtellermgr/PWB227";
+}
+//======================================================================
+
+function aplicarPWB228()
+{
+  document.theForm.method="POST";
+  document.theForm.action="../../../securebin/navwebdll.dll/webtellermgr/PWB228";
+}
+//======================================================================
+
+function EvaluaAccion(eField)
+{
+
+     
+        if (eField.name == "Accion1")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail1.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail1.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail1.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail1.disabled = true;                         
+           }
+
+        if (eField.name == "Accion2")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail2.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail2.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail2.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail2.disabled = true;                         
+           }
+
+        if (eField.name == "Accion3")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail3.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail3.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail3.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail3.disabled = true;                         
+           }
+
+        if (eField.name == "Accion4")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail4.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail4.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail4.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail4.disabled = true;                         
+           }
+
+        if (eField.name == "Accion5")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail5.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail5.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail5.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail5.disabled = true;                         
+           }
+
+        if (eField.name == "Accion6")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail6.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail6.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail6.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail6.disabled = true;                         
+           }
+
+        if (eField.name == "Accion7")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail7.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail7.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail7.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail7.disabled = true;                         
+           }
+
+        if (eField.name == "Accion8")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail8.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail8.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail8.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail8.disabled = true;                         
+           }
+
+        if (eField.name == "Accion9")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail9.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail9.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail9.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail9.disabled = true;                         
+           }
+
+        if (eField.name == "Accion10")
+         { 
+           if (eField.value == "0") document.theForm.DnoEmail10.disabled = true;                         
+           if (eField.value == "ADI") document.theForm.DnoEmail10.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail10.disabled = false;                         
+           if (eField.value == "BOR") document.theForm.DnoEmail10.disabled = true;                         
+           }
+
+}//Fin EvaluaAccion
+//=====================================================================================
+
+function validaEmail(sField)
+{
+ var sEmail;   
+ var lPos;
+ var lPosi;
+ var i;
+ var sTemp;
+ var sResult;
+ var valor;
+ var ch;
+ var cChar;
+
+//arg1.value.replace("-", "");
+//((arg1 >= "0") && (arg1 <= "9")))
+
+ sEmail = (sField.value);
+ valor  = true; 
+ 
+//Valida que no se encuentren espacios dentro del e-mail
+ lPos = sField.value.search(" ");
+
+ if (lPos >= 0)
+   {
+    valor = false;
+    sResult = "Error hay espacio en el e-mail";
+     }
+
+//Valida que exista una @
+lPos = sField.value.search("@");
+if (lPos < 0) 
+  {
+   valor = false;
+    sResult = "Error debe existir una @ en el e-mail";
+   }
+
+//Valida que no inicie con @
+lPos = sField.value.search("@");
+lPos = lPos + 1
+sTemp = sField.value.substring(0,lPos);
+
+if (sTemp == "@") 
+  {
+   valor = false; 
+   sResult = "Error inicia con @ el e-mail";
+   }
+
+//Valida que no inicie con .
+lPos = sField.value.search(".");
+lPos = lPos + 1
+sTemp = sField.value.substring(0,lPos);
+if (sTemp == ".") 
+  {
+   valor = false;
+   sResult = "Error inicia con punto el e-mail";
+   }
+
+//Valida que no termine con punto
+sTemp = sField.value.substring(sEmail.length - 1,sEmail.length);
+if (sTemp == ".")
+  {
+   valor = false;
+   sResult = "Error termina en punto el e-mail";
+    }
+
+//Valida que no termine con @
+sTemp = sField.value.substring(sEmail.length - 1,sEmail.length);
+if (sTemp == "@")
+  {
+   valor = false;
+   sResult = "Error termina con @ el e-mail";
+    }
+
+
+
+// lPosi = 0;
+// lPosi = parseInt(lPosi);
+// for (i = 0;  i < sEmail.length;  i++)  
+//  {
+//    lPosi = lPosi + 1
+//    lPos = search(sEmail,"@",lPosi);
+//     }
+
+
+ for (i = 0;  i < sField.value.length;  i++)
+ {
+
+   sEmail = sField.value.toLowerCase();
+   ch = sEmail.charAt(i);
+
+	if (ch!="a" && ch!="b" && ch!="c" && ch!="d" && ch!="e" && ch!="f" && ch!="g" && ch!="h" && ch!="i" && ch!="j" && ch!="k" && ch!="l" && ch!="m" && ch!="n" && ch!="o" && ch!="p" && ch!="q" && ch!="r" && ch!="s" && ch!="t" && ch!="u" && ch!="v" && ch!="w" && ch!="x" && ch!="y" && ch!="z" && ch!="@" && ch!="." && ch!="1" && ch!="2" && ch!="3" && ch!="4" && ch!="5" && ch!="6" && ch!="7" && ch!="8" && ch!="9" && ch!="0" && ch!="_" && ch!="-")
+	    {
+	       valor = false;      
+	       sResult = "Error caracter inválido o espacio en el e-mail";
+	    }	
+
+ }
+
+  if (sEmail == "")
+      valor = true;
+ 
+  if (valor == false) 
+     {
+    alert("\nError en la Validación del Campo \n" +
+        "\nCampo: E-mail" +
+	"\nProblema: " + sResult);
+       sField.focus(); 
+       }
+  
+}//Fin de validaEmail
+
+//======================================================================================
+
+function Habilita()
+{
+ var eField;
+ var iField;
+ var cElements = document.theForm.elements.length;  //Cantidad de elementos que tiene la forma que se llama theForm
+
+for (iField = 0; iField < cElements; iField++)   //Recorre los campos dentro de la forma 
+  {
+              
+	eField = document.theForm.elements[iField]; 
+
+        if (eField.name == "Accion1")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail1.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail1.disabled = false;                         
+           }
+
+        if (eField.name == "Accion2")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail2.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail2.disabled = false;                         
+           }
+
+        if (eField.name == "Accion3")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail3.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail3.disabled = false;                         
+           }
+
+        if (eField.name == "Accion4")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail4.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail4.disabled = false;                         
+           }
+
+        if (eField.name == "Accion5")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail5.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail5.disabled = false;                         
+           }
+
+        if (eField.name == "Accion6")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail6.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail6.disabled = false;                         
+           }
+
+        if (eField.name == "Accion7")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail7.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail7.disabled = false;                         
+           }
+
+        if (eField.name == "Accion8")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail8.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail8.disabled = false;                         
+           }
+
+        if (eField.name == "Accion9")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail9.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail9.disabled = false;                         
+           }
+
+        if (eField.name == "Accion10")
+         { 
+           if (eField.value == "ADI") document.theForm.DnoEmail10.disabled = false;                         
+           if (eField.value == "MOD") document.theForm.DnoEmail10.disabled = false;                         
+           }
+
+}
+
+}//Habilita
+
+//======================================================================================
+
+// -->

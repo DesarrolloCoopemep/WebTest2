@@ -1,0 +1,77 @@
+<!--
+//Author: Verónica Blanco, UNISYS
+
+// Arma los números de cuenta.
+//======================================================================
+function buildAccount(concepto, oficina, cuenta)
+{
+return concepto + oficina + cuenta;
+}//buildAccount
+
+//======================================================================
+function formatoOficina(oficina)
+{
+if (oficina.length > 3)
+   oficina = oficina.substring(0, 3);
+else
+{
+   var sTemp;
+   sTemp = llenaCeros (3 - oficina.length);
+   oficina = sTemp + oficina;
+}
+
+return oficina;
+}// formatoOficina
+//======================================================================
+function formatoCuenta (cuenta)
+{
+if (cuenta.length > 8)
+   cuenta = cuenta.substring(0, 8);
+else
+   cuenta = llenaCeros (8 - cuenta.length) + cuenta;
+return cuenta;
+}//formatoCuenta
+//======================================================================
+
+function formatoCuenta9(cuenta)
+{
+ var i;
+ var ch;
+ var valor;
+
+ valor = cuenta;
+ cuenta = '';
+
+ for (i=0;  i < valor.length; i++)
+  {
+    ch = valor.charAt(i);
+    if (ch!="-")
+    {
+       cuenta = cuenta + ch;
+    }	
+  }	
+
+if ((cuenta.length > 9) || (cuenta.length == 9))
+   {
+   cuenta = cuenta.substring(0,9);
+    }
+else
+   cuenta = llenaCeros (8 - cuenta.length) + cuenta;
+
+return cuenta;
+
+}//formatoCuenta
+//======================================================================
+
+function llenaCeros (nCeros)
+{
+var i;
+var strCeros = '';
+for (i = 0; i < nCeros; i++)
+{
+   strCeros = '0' + strCeros;
+}
+return strCeros;
+}
+//======================================================================
+// -->

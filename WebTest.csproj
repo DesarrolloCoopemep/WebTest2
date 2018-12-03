@@ -66,6 +66,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Banco de Costa Rica2_files\account.js.descarga" />
+    <Content Include="Banco de Costa Rica2_files\contenido.js.descarga" />
+    <Content Include="Banco de Costa Rica2_files\Format.js.descarga" />
+    <Content Include="Banco de Costa Rica2_files\valida.js.descarga" />
+    <Content Include="Banco de Costa Rica2_files\viewport.js.descarga" />
+    <Content Include="Banco de Costa Rica_files\contenido.js.descarga" />
+    <Content Include="Banco de Costa Rica_files\getseal" />
+    <Content Include="Banco de Costa Rica_files\getseal%281%29" />
+    <Content Include="Banco de Costa Rica_files\viewport.js.descarga" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -75,6 +84,47 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Banco de Costa Rica.html" />
+    <Content Include="Banco de Costa Rica2.html" />
+    <Content Include="Banco de Costa Rica2_files\donacion.png" />
+    <Content Include="Banco de Costa Rica2_files\idioma.png" />
+    <Content Include="Banco de Costa Rica2_files\imprimir.png" />
+    <Content Include="Banco de Costa Rica2_files\inicio.png" />
+    <Content Include="Banco de Costa Rica2_files\logo.gif" />
+    <Content Include="Banco de Costa Rica2_files\MensajeBienvenida.html" />
+    <Content Include="Banco de Costa Rica2_files\personalizar.png" />
+    <Content Include="Banco de Costa Rica2_files\salir.png" />
+    <Content Include="Banco de Costa Rica2_files\seguridad.png" />
+    <Content Include="Banco de Costa Rica2_files\style%281%29.CSS" />
+    <Content Include="Banco de Costa Rica2_files\style.css" />
+    <Content Include="Banco de Costa Rica2_files\subheader_dotline_52.gif" />
+    <Content Include="Banco de Costa Rica2_files\subheader_title_oficinavirtual_52.gif" />
+    <Content Include="Banco de Costa Rica2_files\subheader_title_personas_52.gif" />
+    <Content Include="Banco de Costa Rica2_files\tipocambio.png" />
+    <Content Include="Banco de Costa Rica2_files\transaccional.css" />
+    <Content Include="Banco de Costa Rica_files\61.gif" />
+    <Content Include="Banco de Costa Rica_files\aviso-seguridad-ingsocial-bp.png" />
+    <Content Include="Banco de Costa Rica_files\bcr.css" />
+    <Content Include="Banco de Costa Rica_files\btn_ayuda.gif" />
+    <Content Include="Banco de Costa Rica_files\btn_inicio.gif" />
+    <Content Include="Banco de Costa Rica_files\btn_news.gif" />
+    <Content Include="Banco de Costa Rica_files\btn_seg.gif" />
+    <Content Include="Banco de Costa Rica_files\cookie_detect_ifrm.html" />
+    <Content Include="Banco de Costa Rica_files\cookie_detect_ifrm_info.html" />
+    <Content Include="Banco de Costa Rica_files\img_logon_clavefirm.gif" />
+    <Content Include="Banco de Costa Rica_files\img_logon_demosseg.gif" />
+    <Content Include="Banco de Costa Rica_files\img_logon_glosarioseg.gif" />
+    <Content Include="Banco de Costa Rica_files\img_logon_recursosadic.gif" />
+    <Content Include="Banco de Costa Rica_files\img_logon_reglam-be.gif" />
+    <Content Include="Banco de Costa Rica_files\img_logon_reglasoro.gif" />
+    <Content Include="Banco de Costa Rica_files\img_logon_segcdinam.gif" />
+    <Content Include="Banco de Costa Rica_files\img_logon_seglinea.gif" />
+    <Content Include="Banco de Costa Rica_files\img_logon_tipseg3.gif" />
+    <Content Include="Banco de Costa Rica_files\logo.gif" />
+    <Content Include="Banco de Costa Rica_files\subheader_dotline_52.gif" />
+    <Content Include="Banco de Costa Rica_files\subheader_title_oficinavirtual_52.gif" />
+    <Content Include="Banco de Costa Rica_files\subheader_title_personas_52.gif" />
+    <Content Include="Banco de Costa Rica_files\transaccional.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>

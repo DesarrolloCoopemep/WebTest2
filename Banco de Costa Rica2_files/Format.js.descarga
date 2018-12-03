@@ -1,0 +1,373 @@
+<!--
+//Adaptada por: Veronica Blanco
+
+//Note Netscape bug:
+//  eField attributes that are not defined for a given element type
+//  will contain the value of the previous element for which this
+//  attribute was defined.
+//Note IE bug:
+//  eField.type not supported.
+
+
+var bNetscape;
+if (navigator.appName == "Netscape")
+  bNetscape = true;
+else
+  bNetscape = false;
+
+//======================================================================
+
+function isNull(sField)
+{
+ var valor;
+ 
+ valor = false;
+
+   if(sField.value.length==0)
+   {
+      valor = true;
+   }
+   return valor;
+}//isNull
+
+//======================================================================
+
+function stripFormat(eField)
+{
+   var sMes;
+   var sDia;
+   var sAno; 
+   var lenValue; 
+   var sbResult;
+   var Char;
+   var i;
+   var sCampo;
+   var sValue;
+   var ch;
+   var sResul;
+
+   sValue = eField.value; //Make work copy
+ 
+   sCampo = " ";
+   sResul = "";
+
+   sCampo = sValue;
+
+  if (eField.dataType == "cuenta8" && eField.value.length == 9)
+  {
+    sCampo = eField.value.substring(0,7) + eField.value.substring(8,9);
+       }
+
+  if (eField.dataType == "cuenta16")
+  {
+	 for (i = 0;  i < eField.value.length;i++)
+	  {
+	    ch = eField.value.charAt(i);
+	    if (ch=="0" || ch=="1" || ch=="2" || ch=="3" || ch=="4" || ch=="5" || ch=="6" || ch=="7" || ch=="8" || ch=="9")
+	    {
+	       sResul+= ch;
+	    }	
+	  }	
+    sCampo = sResul;
+//    sCampo = eField.value.substring(0,4) + eField.value.substring(5,9) + eField.value.substring(10,14) + eField.value.substring(15,20);
+  }
+
+  if (eField.dataType == "date01" && eField.value.length == 10 && eField.value.substring(2,3) == '/')
+  {
+    sDia = eField.value.substring(0,2); // dd
+    sMes = eField.value.substring(3,5); // mm
+    sAno = eField.value.substring(6,10); // yyyy
+    sCampo = sDia + sMes + sAno;
+  }
+
+  if (eField.dataType == "date03" && eField.value.length == 8 && eField.value.substring(2,3) == '/') 
+  {
+    sDia = eField.value.substring(0,2); // dd
+    sMes = eField.value.substring(3,5); // mm
+    sAno = eField.value.substring(6,8); // yy
+    sCampo = sDia + sMes + sAno;
+  }
+
+  if ((eField.dataType == "currency") && (eField.value != ''))
+  {
+   lenValue= eField.value.length;
+
+    if (lenValue == 0)
+      return eField;
+
+    for (i = 0; i < lenValue; i++)
+    {
+      Char = sValue.charAt(i);
+
+      if (i==0)       
+         sCampo = "";
+
+      if ((Char != ',') && (Char != ' '))
+        {
+         sCampo = sCampo + Char
+        }
+   }
+     
+  }
+
+    eField.value = sCampo; 
+ 
+//    return sCampo.toString();
+    return sCampo; 
+  
+}//stripFormat
+
+//======================================================================
+
+function applyDecimal(eField)
+{
+    var lenValue;
+    var sValue;
+    var sbResult;
+    var cWhole;
+    var iDecimalPoint;
+    var c3;
+    var i;
+    var Char;
+    var sCadena;
+    var sValor;
+
+    lenValue = eField.value.length;
+
+    sCadena = '';
+ 
+    if (lenValue == 0)
+      { 
+       return eField;
+       }
+
+    sValue = eField.value.substring(0); //Make work copy
+
+    if (sValue.charAt(0) == '-')
+    {
+      sCadena += '-';
+      //Remove sign so negative can use same logic as positive:
+      sValue = eField.value.substring(1,lenValue);
+      lenValue--;
+    }
+
+    cWhole = 0;
+    iDecimalPoint = sValue.indexOf('.');
+    if (iDecimalPoint == -1)
+      cWhole = lenValue;
+    else
+      cWhole = iDecimalPoint;
+
+    if (iDecimalPoint == 0)
+     {      
+      sCadena += '0';
+      }
+
+    //Initialize thousands group position counter:
+    c3 = cWhole % 3;
+    switch (c3)
+    {
+      case 0:
+        break;
+      case 1:
+        c3 = 2;
+        break;
+      case 2:
+        c3 = 1;
+        break;
+    }
+
+    for (i = 0; i < lenValue; i++)
+    {
+      Char = sValue.charAt(i);
+      sCadena += Char;
+
+     if (i >= cWhole - 3)
+        continue; //No more separators
+
+     c3++;
+     if (c3 == 3)
+        {        
+          sCadena += ',';
+          c3 = 0;
+        }
+    }
+    
+   eField.value = sCadena;
+
+   return sCadena.toString();
+}
+
+
+//======================================================================
+
+function applyFormat(eField)
+{
+  var sCampo;
+
+  if ((eField.dataType == null) || (eField.dataType == '') || (eField.value == null) || (eField.value == '')) 
+    {
+    return;
+    }
+  // Formateo de todos los campos tipo por tipo:
+  // currency
+  // percent
+  // date01
+  // unsignedInteger
+
+  if (eField.dataType == "date01" && eField.value.length == 8)
+  {
+    sMes = eField.value.substring(2,4); // mm
+    sDia = eField.value.substring(0,2); // dd
+    sAno = eField.value.substring(4,8); // yyyy
+    eField.value = sDia + "/" + sMes + "/" + sAno;
+  }
+
+
+  if (eField.dataType == "date03" && eField.value.length == 6)
+  {
+    sMes = eField.value.substring(2,4); // mm
+    sDia = eField.value.substring(0,2); // dd
+    sAno = eField.value.substring(4,6); // yyyy
+    eField.value = sDia + "/" + sMes + "/" + sAno;
+  }
+
+
+  if (eField.dataType == "currency")
+  {
+     eField.value = stripFormat(eField);
+     eField.value = applyDecimal(eField);
+   }
+
+  if (eField.dataType == "cuenta8")
+  {
+    eField.value = eField.value.substring(0,7) + "-" + eField.value.substring(7,8);
+   }
+
+  if ((eField.dataType == "cuenta16") && (eField.value.length == 16))
+  {
+    eField.value = eField.value.substring(0,4) + "-" + eField.value.substring(4,8) + "-" + eField.value.substring(8,12) + "-" + eField.value.substring(12,16);
+   }
+
+  sCampo = eField.value;
+  
+  return sCampo.toString();   
+   
+  
+}//applyFormat
+
+//======================================================================
+
+
+function stripFormats(theForm)
+
+{
+  var cElements = theForm.elements.length;
+  var iField;
+  var scampo;
+  for (iField = 0; iField < cElements; iField++)
+  {
+    eField = theForm.elements[iField];
+
+    if (eField.format)
+      {
+	//Debug:
+	//alert("\nValidate Form - Form element:" +
+	//      "\nname         = " + eField.name +
+	//      "\ntype         = " + eField.type +
+	//      "\nlabel        = " + eField.label +
+	//      "\ndataType     = " + eField.dataType +
+	//      "\nrequiredType = " + eField.requiredType +
+	//      "\nvalue        = " + eField.value +
+	//      "\nlength       = " + eField.length);
+        //      "\format        = " + eField.format);  
+
+     if ((eField.value != '') && (eField.dataType == 'cuenta8'))
+         {
+	  theForm.elements[iField].value = stripFormat(eField);
+          }
+
+     if ((eField.value != '') && (eField.dataType == 'cuenta16'))
+         {
+	  theForm.elements[iField].value = stripFormat(eField);
+          }
+
+     //Ignore checkboxes and radio buttons that are not selected:
+     if ((eField.value != '') && (eField.dataType == 'currency'))
+         { 
+//	  eField  = stripFormat(eField.value);
+	  theForm.elements[iField].value = stripFormat(eField);
+         } 
+
+     if ((eField.value != '') && (eField.dataType == 'unsignedInteger'))
+         { 
+           theForm.elements[iField].value = eField.value;          
+          }
+
+     if ((eField.value != '') && (eField.dataType == 'date03'))
+        { 
+         scampo = stripFormat(eField);
+	 theForm.elements[iField].value = scampo;
+           }
+
+//     else
+//       {
+//         theForm.elements[iField].value = "0.00";
+//       }        
+
+    }
+  }
+
+}//stripFormats
+
+//======================================================================
+
+function applyFormats(theForm)
+
+{
+  var cElements = theForm.elements.length;
+  var iField;
+  for (iField = 0; iField < cElements; iField++)
+  {
+    eField = theForm.elements[iField];
+
+    if (eField.format)
+      {
+	    //Debug:
+	    //alert("\nValidate Form - Form element:" +
+	    //      "\nname         = " + eField.name +
+	    //      "\ntype         = " + eField.type +
+	    //      "\nlabel        = " + eField.label +
+	    //      "\ndataType     = " + eField.dataType +
+	    //      "\nrequiredType = " + eField.requiredType +
+	    //      "\nvalue        = " + eField.value +
+	    //      "\nlength       = " + eField.length);
+	    //      "\format        = " + eField.format);  
+
+       //Ignore checkboxes and radio buttons that are not selected:
+       if ((eField.value != '') && (eField.dataType == 'currency'))
+         { 
+	  eField  = applyFormat(eField);
+	  theForm.elements[iField].value = eField;
+         }        
+
+       //Ignore checkboxes and radio buttons that are not selected:
+       if ((eField.value != '') && (eField.dataType == 'cuenta8'))
+         { 
+	  eField  = applyFormat(eField);
+	  theForm.elements[iField].value = eField;
+         }        
+
+       //Ignore checkboxes and radio buttons that are not selected:
+       if ((eField.value != '') && (eField.dataType == 'cuenta16'))
+         { 
+	  eField  = applyFormat(eField);
+	  theForm.elements[iField].value = eField;
+         }        
+
+      }
+  }
+}//applyFormats
+
+//======================================================================
+// -->

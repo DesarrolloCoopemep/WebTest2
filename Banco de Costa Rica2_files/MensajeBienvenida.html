@@ -1,0 +1,549 @@
+
+<!-- saved from url=(0064)https://www.personas.bancobcr.com/ib_bcr/txns/nbt09/nbt09ing.asp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script language="JavaScript">
+function menCDVencida()
+	  	{
+			window.open("/IB_BCR/txns/Clave_Dinamica/mensajeCDVencida.asp","oficinas","menubar=no,status=no,scrollbars=yes,resizable=no,width=500,height=360");
+	  	}
+</script>
+
+<link href="./style.css" rel="stylesheet" type="text/css">
+
+
+<link href="./style.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+	
+	
+	<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" value="no-cache, no-store, must-revalidate">
+	<meta http-equiv="Expires" content="Mon, 01 Jan 1990 00:00:01 GMT">		
+	<title>Transferencia de Fondos</title>
+	<link rel="stylesheet" type="text/css" href="./style(1).CSS"> 
+	<script language="JavaScript">
+		function corregir() {
+		  history.back();
+		}
+		function checkFrec(){
+		  if (document.theForm.SaveTxnFrec.checked){
+		    document.theForm.SaveTxnFrec.value = "1";
+		  } else {
+		    document.theForm.SaveTxnFrec.value = "0";
+		  }
+		}
+	</script>
+
+	
+			<script language="JavaScript" src="./valida.js.descarga"></script>	
+		
+		<script language="JavaScript" src="./Format.js.descarga"></script>
+		<script language="JavaScript" src="./account.js.descarga"></script>
+		<script language="JavaScript">
+			function favoritos(cta) {
+				window.open("../../favoritos/fav.asp?task=list&source=acahList&TxnName=SICCNBT09&pos="+cta+getTime('&'),"favoritos","menubar=no,status=no,scrollbars=yes,resizable=no,width=650,height=500");
+			    return false;
+			}
+
+			function FrecTxn() {
+			    window.open("/ib_bcr/asp/NBFrec/txnFrecTranfAcAh.asp"+getTime('?'),"frecuentes","menubar=no,status=no,scrollbars=yes,resizable=no,width=650,height=500");
+			    return false;
+			}
+
+			function getTime(caracter) {
+			  var iMilliSecDateTime = (new Date()).getTime();
+			  return(caracter + "time=" + iMilliSecDateTime);
+			}
+
+			function img2(fld) {
+			    fld.src="/images/fav2.gif";
+			}
+
+			function img1(fld) {
+			    fld.src="/images/fav1.gif";
+			}
+
+			function oficinas(nNumeroOficinaText) {
+			   window.open("/ib_BCR/oficinas.asp?id="+nNumeroOficinaText,"oficinas","menubar=no,status=no,scrollbars=yes,resizable=no,width=400,height=300");
+			}
+
+			function mensajes() {
+			   window.open("NBT09popup.asp","oficinas","menubar=no,status=no,scrollbars=yes,resizable=no,width=400,height=300");
+			}
+
+			function Llamados() {  
+				AplicarFormatosSubmit();
+				stripFormats(document.theForm);
+				validaCtaTranf();
+				return validateForm(document.theForm);
+			}
+
+			function AplicarFormatosSubmit() {
+				onblurCta(document.theForm.Cuenta1);
+				onblurCta(document.theForm.Cuenta2);
+				onblurCta(document.theForm.Cuenta3);
+				onblurCta(document.theForm.Cuenta4);
+			}
+		</script>
+	
+</head>
+
+<body bgcolor="#FFFFFF" onload="
+	   document.theForm.Oficina1.dataType       = &#39;unsignedInteger&#39;;
+	   document.theForm.Oficina1.requiredType   = &#39;optional&#39;;
+	   document.theForm.Oficina1.format         = true;   
+
+	   document.theForm.Oficina2.dataType       = &#39;unsignedInteger&#39;;
+	   document.theForm.Oficina2.requiredType   = &#39;optional&#39;;
+	   document.theForm.Oficina2.format         = true;   
+
+	   document.theForm.Oficina3.dataType       = &#39;unsignedInteger&#39;;
+	   document.theForm.Oficina3.requiredType   = &#39;optional&#39;;
+	   document.theForm.Oficina3.format         = true;   
+
+	   document.theForm.Oficina4.dataType       = &#39;unsignedInteger&#39;;
+	   document.theForm.Oficina4.requiredType   = &#39;optional&#39;;
+	   document.theForm.Oficina4.format         = true;   
+
+	   document.theForm.Cuenta1.dataType        = &#39;cuenta8&#39;;
+	   document.theForm.Cuenta1.requiredType    = &#39;optional&#39;;
+	   document.theForm.Cuenta1.format          = true;   
+
+	   document.theForm.Cuenta2.dataType        = &#39;cuenta8&#39;;
+	   document.theForm.Cuenta2.requiredType    = &#39;optional&#39;;
+	   document.theForm.Cuenta2.format          = true;   
+	  
+	   document.theForm.Cuenta3.dataType        = &#39;cuenta8&#39;;
+	   document.theForm.Cuenta3.requiredType    = &#39;optional&#39;;
+	   document.theForm.Cuenta3.format          = true;   
+
+	   document.theForm.Cuenta4.dataType        = &#39;cuenta8&#39;;
+	   document.theForm.Cuenta4.requiredType    = &#39;optional&#39;;
+	   document.theForm.Cuenta4.format          = true;   
+
+	   document.theForm.TxnAmt1.dataType     = &#39;currency&#39;;
+	   document.theForm.TxnAmt1.requiredType = &#39;optional&#39;;
+	   document.theForm.TxnAmt1.format       = true;
+	  
+	   document.theForm.TxnAmt2.dataType     = &#39;currency&#39;;
+	   document.theForm.TxnAmt2.requiredType = &#39;optional&#39;;
+	   document.theForm.TxnAmt2.format       = true;
+	   
+	   document.theForm.TxnAmt3.dataType     = &#39;currency&#39;;
+	   document.theForm.TxnAmt3.requiredType = &#39;optional&#39;;
+	   document.theForm.TxnAmt3.format       = true;
+
+	   document.theForm.TxnAmt4.dataType     = &#39;currency&#39;;
+	   document.theForm.TxnAmt4.requiredType = &#39;optional&#39;;
+	   document.theForm.TxnAmt4.format       = true;
+	 
+		document.theForm.Oficina1.label = &#39;Oficina 1&#39;;
+		document.theForm.Oficina2.label = &#39;Oficina 2&#39;;
+		document.theForm.Oficina3.label = &#39;Oficina 3&#39;;
+		document.theForm.Oficina4.label = &#39;Oficina 4&#39;;			   	
+		
+		document.theForm.Cuenta1.label = &#39;Cuenta 1&#39;;
+		document.theForm.Cuenta2.label = &#39;Cuenta 2&#39;;
+		document.theForm.Cuenta3.label = &#39;Cuenta 3&#39;;
+		document.theForm.Cuenta4.label = &#39;Cuenta 4&#39;;
+		
+		document.theForm.TxnAmt1.label = &#39;Monto 1&#39;; 
+		document.theForm.TxnAmt2.label = &#39;Monto 2&#39;;
+		document.theForm.TxnAmt3.label = &#39;Monto 3&#39;;			 	
+		document.theForm.TxnAmt4.label = &#39;Monto 4&#39;;
+	   applyFormats(document.theForm);">
+	
+	<!---------------------------------------------------------------------------------------------------------------->
+<form name="theForm" action="https://www.personas.bancobcr.com/ib_bcr/txns/nbt09/nbt09ing.asp" method="POST" onsubmit="return Llamados();">
+	
+	<script language="javascript" type="text/javascript">
+		function Procesando()
+	    {
+	        document.getElementById('LoadingContent').innerHTML = '<img src="/images/espera_l.gif">';
+	    }
+	</script>
+	
+	<script language="javascript" type="text/javascript">
+	    function CallSignFormAndEnableConfirmar(msg)
+	    {
+	        msg = msg.replace(/\\r\\n/g,"\r\n");
+	        var result = CallSignForm(msg);
+	        if ( ! result )
+	            document.theForm.Confirmar.disabled = false;   
+	        return result;
+	    }
+	</script>
+
+	<input type="hidden" name="TxnName" value="SICCNBT09">
+	<input type="hidden" name="ACoTipTef" value="11">
+	<input type="hidden" name="vCodigo" value="11">
+
+
+    
+	<input type="hidden" readonly="True" name="TarjetaTD" value="2033-80DFC-9">
+	<input type="hidden" readonly="True" name="EstadoTD" value="1">
+	<input type="hidden" readonly="True" name="ProdEncontTD" value="True">
+	<input type="hidden" readonly="True" name="DebeUsarTxn_TD" value="True">	
+    <input type="hidden" readonly="True" name="TipoTarjetaTD" value="I">
+
+
+	<h1 align="center">Transferencia de Fondos</h1>
+	<div align="center">
+    <a href="javascript:window.self.parent.DatosModal(&#39;/ib_bcr/txns/nbt09/NBT09popup.asp?a=1&#39;,&#39;Mensajes importantes&#39;)">Mensajes importantes</a>    
+	<br>
+	
+		<div align="center">
+		  <p>&nbsp;</p>
+		  <table border="0" class="inputAzul" width="500">
+		<tbody><tr><td class="inputrojo">
+			<p class="p_oscuro" align="left"><em><em>Para realizar transferencias es necesario matricular las cuentas. Posterior a su matrícula no se le solicitará el dispositivo de seguridad. Realice  la matrícula de las cuentas <a href="https://www.personas.bancobcr.com/ib_bcr/txns/Clave_Dinamica/MatriculaCuentasIng.asp">aquí</a></em><br>
+			</em></p>
+		</td></tr>
+		</tbody></table>
+          <p>&nbsp;</p>
+  </div>
+
+	 
+
+	<div align="center"><center>
+	<table border="0">
+	<tbody><tr>
+		<td><p class="p_oscuro">Quiero transferir fondos de la cuenta:</p></td>
+        <td><p align="right">
+			<select name="AcctNbr" size="1" class="inputazul">
+			<option value="-1">Seleccione una cuenta</option><option value="200102416000">00102416000 : Ahorros</option><option value="200119630204">00119630204 : Ahorros</option><option value="200123635177">00123635177 : Ahorros</option>
+      </select>
+      </p></td>
+	</tr>
+	</tbody></table>
+    <table>
+	<tbody><tr>
+    	<td><p class="p_oscuro">Motivo:</p></td>
+		<td><p align="center"><input type="text" name="TNoRazTra" class="inputazul" size="60" maxlength="30" value=""></p></td>
+	</tr>
+    </tbody></table></center></div>
+	
+	<table border="0" cellspacing="1" align="center">
+	<tbody><tr>
+		<td class="cellazuloscuro" colspan="4">
+			<p align="center" class="p_oscuro">A la(s) siguiente(s) cuenta(s)<br>
+               <a href="javascript:window.self.parent.DatosModal(&#39;/ib_bcr/asp/NBFrec/txnFrecTranfAcAh.asp?a=1&#39;,&#39;Transacciones Frecuentes&#39;)">Transacciones Frecuentes</a>
+            </p>
+		</td>
+	</tr>
+	<tr>
+    	<td class="cellazuloscuro">
+			<p align="center">
+			<b class="p_oscuro">&nbsp;1&nbsp;</b><br>&nbsp;
+          
+				<a href="javascript:window.self.parent.DatosModal(&#39;/ib_BCR/txns/Clave_Dinamica/PopUpMatriculadas.asp?consulta=1&amp;id=Oficina1&amp;cr1=Concepto1&amp;cr2=Oficina1&amp;cr3=Cuenta1&amp;busqueda=0&amp;tipo=1&#39;,&#39;Favoritas&#39;)">Favoritas</a>
+				           
+            &nbsp;
+            </p>
+	    </td>
+		<td class="d2">
+          <div align="center">
+            <table border="0">
+			  <tbody><tr>
+            	  <td align="center"><p align="left" class="p_oscuro">Tipo de cuenta</p></td>
+			  </tr>
+			  <tr>
+				  <td align="left">		
+				 
+				<p><select name="Concepto1" class="inputazul" size="1">
+				<option value="0">----</option><option value="1">Corriente</option><option value="2">Ahorros
+				    </option></select></p>					
+				  </td>
+			  </tr>
+            </tbody></table>
+      </div></td>
+        <td class="d2">
+		<div align="center">
+            <table border="0">
+			  <tbody><tr>
+                <td align="center"><div align="center">
+				
+                <p align="left" class="p_oscuro">Oficina</p>                
+				      
+                </div></td>
+				  <td align="center"><p align="center" class="p_oscuro">Número</p></td>
+			  </tr>
+           	  <tr>
+               	  <td align="center" class="p_oscuro"><div align="center">
+					 
+               	    <input type="text" size="3" maxlength="3" name="Oficina1" value="" align="center" class="inputAzul">
+             	    
+					</div></td>
+				  <td align="center">
+                    <div align="center">
+						 
+                      <input name="Cuenta1" type="text" value="" size="10" maxlength="10" class="inputAzul">		 
+						
+                      <input type="hidden" name="AcctNbr1">
+		            </div></td>
+			  </tr>
+		    </tbody></table>
+      </div></td>
+		<td class="d2">            
+		<div align="center">
+            <table border="0">
+   			  <tbody><tr>
+               	  <td align="center"><p class="p_oscuro">Monto (Colones o Dólares)</p></td>
+			  </tr>
+           	  <tr>
+               	  <td><p class="p_oscuro">
+					  
+						  <input type="text" class="inputAzul" size="14" maxlength="14" name="TxnAmt1" value="0.00" onblur="applyFormat(this);">
+					  
+			      </p></td>
+   			  </tr>
+       	    </tbody></table>
+      </div></td>
+	</tr>
+	
+	<tr>
+    	<td class="cellazuloscuro">
+			<p align="center">
+			<b class="p_oscuro">&nbsp;2&nbsp;</b><br>&nbsp;
+         
+			<a href="javascript:window.self.parent.DatosModal(&#39;/ib_BCR/txns/Clave_Dinamica/PopUpMatriculadas.asp?consulta=1&amp;id=Oficina2&amp;cr1=Concepto2&amp;cr2=Oficina2&amp;cr3=Cuenta2&amp;busqueda=0&amp;tipo=1&#39;,&#39;Favoritas&#39;)">Favoritas</a>
+			
+            </p> 
+        </td>
+		<td class="d2">			<div align="center">
+		    <table border="0">
+			    <tbody><tr>
+				    <td><p class="p_oscuro">Tipo de cuenta</p></td>
+			    </tr>
+			    <tr>
+				    <td>
+					 
+					<p><select name="Concepto2" size="1" class="inputazul">
+					<option value="0">----</option><option value="1">Corriente</option><option value="2">Ahorros
+				    </option></select></p></td>
+			    </tr>
+		    </tbody></table>
+	    </div></td>
+        <td class="d2"><div align="center">
+		    <table border="0">
+			    <tbody><tr>
+				    <td align="center"><div align="center">
+                   
+                <p align="left" class="p_oscuro">Oficina</p>                
+				             
+                    </div></td>
+				    <td align="center"><p align="center" class="p_oscuro">Número</p></td>
+			    </tr>
+			    <tr>
+				    <td align="center"><div align="center">
+					 
+				      <input type="text" size="3" maxlength="3" name="Oficina2" value="" align="center" class="inputAzul">
+					
+				      </div></td>
+				    <td align="center" class="p_oscuro">
+					    <div align="center">
+						 
+				          <input type="text" size="10" maxlength="10" name="Cuenta2" value="" class="inputAzul">
+						
+				          <input type="hidden" name="AcctNbr2">
+			          </div></td>
+			    </tr>
+		    </tbody></table>
+	    </div></td>
+		<td class="d2"><div align="center">
+		    <table border="0" align="center">
+			    <tbody><tr>
+				    <td align="center"><p class="p_oscuro">Monto (Colones o Dólares)</p></td>
+			    </tr>
+			    <tr>
+				    <td>
+					  <p class="p_oscuro">
+					    
+                        <input type="text" size="14" maxlength="14" name="TxnAmt2" value="0.00" onblur="applyFormat(this);" class="inputAzul">						
+                      </p>
+			      </td>
+			    </tr>
+		    </tbody></table>
+	    </div></td>
+	</tr>
+		
+	  
+	<tr>
+		<td class="cellazuloscuro">
+				<p align="center">
+			<b class="p_oscuro">&nbsp;3&nbsp;</b><br>&nbsp;
+         
+				<a href="javascript:window.self.parent.DatosModal(&#39;/ib_BCR/txns/Clave_Dinamica/PopUpMatriculadas.asp?consulta=1&amp;id=Oficina3&amp;cr1=Concepto3&amp;cr2=Oficina3&amp;cr3=Cuenta3&amp;busqueda=0&amp;tipo=1&#39;,&#39;Favoritas&#39;)">Favoritas</a>
+				       
+            &nbsp;
+            </p>
+        </td>
+			<td class="d2"><div align="center">
+			    <table border="0">
+				  <tbody><tr>
+					  <td><p class="p_oscuro">Tipo de cuenta</p></td>
+				  </tr>
+				  <tr>
+					  <td>
+						 
+						 <p><select name="Concepto3" size="1" class="inputazul">
+						<option value="0">----</option><option value="1">Corriente</option><option value="2">Ahorros
+					      </option></select></p>
+				      </td>
+				  </tr>
+	          </tbody></table>
+	    </div></td>
+        <td class="d2"><div align="center">
+		    <table border="0">
+			    <tbody><tr>
+				    <td align="center"><div align="center">
+                   
+                <p align="left" class="p_oscuro">Oficina</p>                
+				 
+                    </div></td>
+				    <td align="center"><p align="center" class="p_oscuro">Número</p></td>
+			    </tr>
+			    <tr>
+				    <td align="center">
+				      <div align="center">
+						 
+				        <input type="text" size="3" name="Oficina3" maxlength="3" value="" align="center" class="inputAzul">
+						
+			          </div></td>
+				    <td align="center" class="p_oscuro">
+                      <div align="center">
+						 
+                        <input type="text" size="10" name="Cuenta3" maxlength="10" value="" class="inputAzul">
+												
+                        <input type="hidden" name="AcctNbr3">
+		              </div></td>
+			    </tr>
+		    </tbody></table>
+	    </div></td>
+		<td class="d2"><div align="center">
+		    <table border="0">
+			  <tbody><tr>
+				  <td align="center"><p class="p_oscuro">Monto (Colones o Dólares)</p></td>
+			  </tr>
+			  <tr>
+				  <td><p class="p_oscuro">
+					  
+						  <input type="text" size="14" name="TxnAmt3" maxlength="14" value="0.00" onblur="applyFormat(this);" class="inputAzul">
+					  
+			      </p></td>
+			  </tr>
+		    </tbody></table>
+	    </div></td>
+	</tr>
+			
+	<tr>
+		<td class="cellazuloscuro">
+			<p align="center">
+			<b class="p_oscuro">&nbsp;4&nbsp;</b><br>&nbsp;
+				 
+				<a href="javascript:window.self.parent.DatosModal(&#39;/ib_BCR/txns/Clave_Dinamica/PopUpMatriculadas.asp?consulta=1&amp;id=Oficina4&amp;cr1=Concepto4&amp;cr2=Oficina4&amp;cr3=Cuenta4&amp;busqueda=0&amp;tipo=1&#39;,&#39;Favoritas&#39;)">Favoritas</a>
+				         
+            &nbsp;
+            </p>
+        </td>
+			<td class="d2">				
+		      <div align="center">
+		        <table border="0">
+			      <tbody><tr>
+				      <td><p class="p_oscuro">Tipo de cuenta</p></td>
+			      </tr>
+			      <tr>
+				      <td>
+				     
+					      <p><select name="Concepto4" size="1" class="inputazul">
+					<option value="0">----</option><option value="1">Corriente</option><option value="2">Ahorros
+			              </option></select></p>
+		              </td>
+			      </tr>
+                </tbody></table>
+      </div></td>
+		<td class="d2"> <div align="center">				   
+	        <table border="0">
+		        <tbody><tr>
+			        <td align="center"><div align="center">
+                   
+                <p align="left" class="p_oscuro">Oficina</p>                
+				                           
+                    </div></td>
+			        <td align="center"><p align="center" class="p_oscuro">Número</p></td>
+		        </tr>
+		        <tr>
+			        <td align="center" class="p_oscuro">
+				        <div align="center">
+						 
+				          <input type="text" size="3" maxlength="3" value="" align="center" name="Oficina4" class="inputAzul">
+						
+		              </div></td>
+			        <td align="center" class="p_oscuro">	
+							 					
+				          <input type="text" size="10" maxlength="10" name="Cuenta4" value="" class="inputAzul">
+							
+				          <input type="hidden" size="20" name="AcctNbr4" onblur="applyFormat(this);">
+                  </td>
+		        </tr>
+            </tbody></table>
+      </div></td>
+		<td class="d2">			
+	      <div align="center">
+	        <table border="0">
+		      <tbody><tr>
+			      <td align="center"><p class="p_oscuro">Monto (Colones o Dólares)</p></td>
+		      </tr>
+		      <tr>
+			      <td><p class="p_oscuro">
+				      
+					      <input type="text" class="inputAzul" size="14" maxlength="14" name="TxnAmt4" value="0.00" onblur="applyFormat(this);">
+				      
+	              </p></td>
+		      </tr>
+            </tbody></table>
+      </div></td>
+	</tr>
+		
+	
+	</tbody></table>
+
+	<div align="center"><center>
+		<table border="0">
+			<tbody><tr>
+				<td>
+					<p align="center"><input name="Enviar" type="submit" value="Verificar" class="boton"></p>
+				</td>
+			</tr>
+		</tbody></table>
+	</center></div>
+
+
+<!-------------------------------------------------------------------- -->
+<!--  -->
+
+<!-------------------------------------------------------------------- -->
+
+
+
+<!----------------------------------------------------------------------------- -->
+<!--  -->
+<script language="JavaScript" type="text/javascript">
+function CallSignForm(msg)
+{
+	return true;
+}
+</script>
+
+<!----------------------------------------------------------------------------- -->
+
+    <!----------------------------------------------------------------------------- -->
+    <!--  ----------------------- -->
+    
+    <!------------------------------------------------------------------------------->
+
+
+</div></form></body></html>

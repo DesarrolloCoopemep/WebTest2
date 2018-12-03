@@ -1,0 +1,323 @@
+/* Hoja de Estilos */
+/* Banco de Costa Rica */
+/* Autor: InterGraphicDESINGS */
+body {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #FFFFFF;}
+
+.body {
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-image: url(/imagenes/bg.gif);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;}
+/*	background-color: #E1EFFF;*/
+/*********** Iframe para transacciones ************/
+div.iframe { text-align:center; }
+iframe#ifrm { width:98% }
+/*********** Encabezado (Logo, Iconos Superiores y Pestañas) ************/
+#header {
+    background-color: #FFF;
+	width: 98%;
+	height: 78px;}
+#header_logo {
+	margin-left: 15px;
+	margin-top: 15px;
+	width: 133px;
+	float: left;
+	display: inline;}
+#header_col2 {
+	width: 480px;
+	float: right;}
+#header_col2_botones_superiores {
+	text-align: right;
+	height: 34px;
+}
+#header_col2_botones_superiores a:link, #header_col2_botones_superiores a:visited {
+	border-top: 1px solid #FFF;
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;}
+#header_col2_botones_superiores a:hover {
+    background-color: #E4E4E4;
+	border-top: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	padding-top: 34px;}
+
+/*********** Encabezado > Pestañas ************/
+#header_col2_tabs{
+
+	margin-top: 23px;
+	height: 20px;
+	float: right;}
+.header_col2_tabs_left {
+	padding-top: 3px;
+	background-image: url(/imagenes/tab_left_bg.gif);
+	background-color: #CCE4FF;
+	background-repeat: no-repeat;
+	width: 6px;
+	height: 18px;  
+	float: left;}
+.header_col2_tabs_right {
+	padding-top: 3px;
+	background-image: url(/imagenes/tab_right_bg.gif);
+	background-color: #CCE4FF;
+	background-repeat: no-repeat;
+	width: 6px;
+	height: 18px;  
+	float: left;}
+.header_col2_tabs_center {
+	padding-top: 3px;
+	background-color: #CCE4FF;
+	height: 18px;  
+	float: left;}
+.header_col2_tabs_center a{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #021054;
+	text-decoration: none;
+	font-weight: normal;}
+.header_col2_tabs_center a:hover {
+	text-decoration: underline;}
+.header_col2_tabs_division {
+	width: 2px;
+	height: 21px;
+	float: left;}
+/*********** SubEncabezado (Linea Roja y Arte Azul) ************/
+#subheader {
+	clear: both;
+	background-color: #008ABB;
+	width: 98%;
+	height: 63px;}
+#subheader_red {
+	background-color: #FE0000;
+	/*background-image: url(/imagenes/slogan_esp.jpg);*/
+	width: 245px;
+	height: 63px;
+	float: left;}
+	
+#subheader_line {
+	background-image: url(/imagenes/subheader_line.gif);
+	background-repeat: no-repeat;
+	width: 17px;
+	height: 63px;
+	float: left;}
+#subheader_bg {
+	background-image: url(/imagenes/subheader_bg.jpg);
+	background-repeat: no-repeat;
+	width: 55%;
+	height: 63px;
+	float:left;}
+#subheader_imgs {
+	float: right;}
+/*********** Menu Horizontal ************/
+#menu_horizontal {
+	width: 98%;
+	height: 28px;
+	padding-left: 15px;
+	padding-top: 5px;
+	padding-bottom: 1px;
+	text-align: right;}
+ul#tabnav {
+      float: right;
+      list-style-type: none;
+      margin: 0px;}
+ul#tabnav li {
+      float: left;
+      height: 20px;}
+ul#tabnav a:link, ul#tabnav a:visited {
+      display: block;
+      color: #FFF;
+      text-decoration: none;
+      padding: 3px;
+      border-top: 1px solid #CCC;
+      border-left: 1px solid #CCC;
+      border-right: 1px solid #222;
+      border-bottom: 1px solid #222;
+      margin: 2px 4px 2px 2px;}
+ul#tabnav a:hover {
+      background-color: #E4E4E4;
+      color: #666;
+      border-top: 1px solid #222;
+      border-left: 1px solid #222;
+      border-right: 1px solid #CCC;
+      border-bottom: 1px solid #CCC;}
+#tabnav .activo a:link {
+      background-color: #E4E4E4;
+      color: #666;
+      border-top: 1px solid #222;
+      border-left: 1px solid #222;
+      border-right: 1px solid #CCC;
+      border-bottom: 1px solid #CCC;}
+#tabnav .inactivo a:link {}
+/*********** Cotenido ************/
+#content{width: 100%;}
+/*********** Cotenido (Columna Izquierda: Menu) ************/
+#content_menu {
+	width: 187px;
+    background-color: #FFF;	
+	background-image: url(/imagenes/menu_bg.gif);
+	background-repeat: repeat-y;
+	float: left;}
+/*********** Cotenido (Columna Izquierda: Enlaces Primarios del Menu) ************/
+.content_menu_primario {
+	width: 163px;
+	background-image: url(/imagenes/menu_primario_bg.gif);
+	background-repeat: no-repeat;
+	padding-left: 24px;
+	padding-top: 3px;
+	padding-bottom: 3px;}
+.content_menu_primario a{
+	color: #021054;
+	text-decoration: none;}
+.content_menu_primario a:hover {
+	text-decoration: underline;}
+.content_menu_primario em {
+	background-image: url(/imagenes/menu_primario_bg_right.gif);
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	}
+.content_menu_primario_texto {
+	width: 163px;
+	color: #217AA5;
+	background-repeat: no-repeat;
+	padding-left: 24px;
+	padding-top: 3px;
+	padding-bottom: 3px;}
+/*********** Cotenido (Columna Izquierda: Enlaces Secundarios del Menu) ************/
+.content_menu_secundario {
+	width: 139px;
+	background-image: url(/imagenes/menu_secundario_bg.gif);
+	background-repeat: no-repeat;
+	background-color: #F2F8FE;
+	padding-left: 47px;
+	padding-top: 3px;
+	padding-bottom: 3px;}
+.content_menu_secundario a{
+	color: #FF0000;
+	text-decoration: none;}
+.content_menu_secundario a:hover{
+	text-decoration: underline;}
+.div_m_activo  {display:block;}
+.div_m_inactivo{display: none;}
+/*********** Cotenido (Columna Izquierda: Division de Puntos entre secciones del Menu) ************/
+.content_menu_division {
+	background-image: url(/imagenes/menu_bg_division.gif);
+	background-repeat: no-repeat;
+	width: 187px;
+	height: 1px;
+	overflow: hidden;
+	display:block;}
+/*********** Cotenido (Columna Derecha: SubContenido) ************/
+#content_subcontent {
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 98%;
+	float: left;}
+/*********** Cotenido (Tablas Principales del SubContenido) ************/
+.subcontent_table{
+	background-color: #CCCCCC;
+	margin-top: 3px;
+	margin-bottom: 3px;}
+.subcontent_table thead td{	background-color: #FFFFFF;}
+.subcontent_table tbody td{
+	background-color: #FFFFFF;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;}
+.subcontent_table_title{
+	background-image: url(/imagenes/subcontent_table_title_bg.gif);
+	background-repeat: no-repeat;
+	padding-top: 2px;
+	padding-left: 40px;
+	height: 26px;}
+/*********** Cotenido (Tablas Secundarias del SubContenido) ************/
+.subcontent_table_sec {
+	background-color: #FFFFFF;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	font-size: 11px;}
+.subcontent_table_sec thead {
+	color: #CCFF00;}
+.subcontent_table_sec thead td{
+	background-color: #E8E8E8;
+	font-size: 12px;
+	color: #666666;
+	font-weight: bold;}
+.subcontent_table_sec tbody {
+	color: #666666;}
+.subcontent_table_sec tbody td{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #E3F2FF;
+	color: #666666;}
+/*********** Cotenido (Tablas Terciarias del SubContenido) ************/
+.subcontent_table_ter {
+	background-color: #FFFFFF;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	font-size: 11px;}
+.subcontent_table_ter thead {color: #CCFF00;}
+.subcontent_table_ter thead td{
+	background-color: #E8E8E8;
+	font-size: 12px;
+	color: #666666;
+	font-weight: bold;
+	border-bottom: 1px solid #F7F7F7;}
+.subcontent_table_ter tbody {
+	color: #666666;}
+.subcontent_table_ter tbody td{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #FFFFFF;
+	color: #666666;
+	border-bottom: 1px solid #F4F4F4;}
+/*********** Pie de Pagina ************/
+#footer {
+	clear: both;
+	width: 100%;
+	text-align: center;
+	background-color: #666666;
+	color: #FFFFFF;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color: #FFFFFF;}
+#footer a {	
+	color: #FFF;
+	font-weight: bold;
+	text-decoration: none;}
+#footer a:hover {
+	text-decoration: underline;}
+/*********** Titulos ************/
+h1 {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	font-size: 18px;
+	color: #012363;}
+/*********** Estilos para textos ************/
+.important {
+	font-weight: bold;
+	color: #217AA5;}
+.important_red {
+	font-weight: normal;
+	color: #FE0000;}
+/*********** Otros ************/	
+#espera {                    
+	position: absolute;   
+	visibility: hidden;	

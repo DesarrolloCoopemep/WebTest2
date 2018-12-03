@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0044)https://www.personas.bancobcr.com/plantilla/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Banco de Costa Rica</title>
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="cache-control" value="no-cache, no-store, must-revalidate">
+<meta http-equiv="Expires" content="Mon, 01 Jan 1990 00:00:01 GMT">
+<link href="./Banco de Costa Rica_files/transaccional.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.vinculo {
+font-family: Arial, Helvetica, sans-serif;
+color: red;
+text-decoration: none;
+}
+h1{
+	font-size: 14px;
+}
+
+.sbttn {
+    background: none repeat scroll 0 0 #FF3535;
+    border-color: #DF0000 #A80000 #A80000 #DF0000;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.black_overlay { /* afuera: la parte oscura */
+   background: #000000;
+   display: none;
+   position: absolute;
+   left: 0; top: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1001;
+   opacity: .50; /* opacidad para Firefox */
+   filter: alpha(opacity=50);  /* opacidad para Internet Explorer */
+}
+
+.white_content { /* adentro: la ventana modal */
+  background: #FFFFFF;
+  display: none;
+  position: absolute;
+  overflow: auto;
+  z-index:1002; 
+  left: 25%;  top: 20%; /* la posición de la ventana modal */
+  width: 55%; /*height: 60%; /* el tamaño de la ventana modal */
+  padding: 16px;
+  color: #333;
+  /* cualquier otra propeidad, colores, márgenes, fondo */
+}
+.modal_content {
+	border: 3px solid #022263;
+    display: none;
+    overflow: auto; -webkit-overflow-scrolling: touch;
+    padding: 0px;
+
+	position: absolute;
+    left: 50%;				/* Centrar */
+    top: 50%;				/* Centrar */
+    height: 480px;
+    margin-top: -240px;		/* height/2 */
+    width: 650px;
+    margin-left: -325px;	/* width/2 */
+
+    z-index: 1002;
+}
+/*pruebas de menu doble CSS: transaccional.css*/
+.body { background-image: url("/imagenes/bg_menu_doble.gif");}
+#subheader {height: 52px;}
+#subheader_red {height: 52px;}
+#subheader_line {background-image: url("/imagenes/subheader_line_52.gif"); height: 52px;}
+#subheader_bg {background-image: url("/imagenes/subheader_bg_52.jpg");height: 52px;}
+#menu_horizontal {height: 46px;}
+/*ul#tabnav li {width: 130px;}*/
+#header_col2 {width: 550px;}
+ul#tabnav {margin-bottom: 0; margin-top: -2px; line-height: 10px;}
+
+#header_col2_botones_superiores {height: 27px;}
+#header {height: 71px;}
+#header_logo {margin-top: 12px;}
+-->
+</style>
+
+
+<script language="javascript" src="./Banco de Costa Rica_files/viewport.js.descarga" type="text/javascript"></script>
+<script language="javascript" src="./Banco de Costa Rica_files/contenido.js.descarga" type="text/javascript"></script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function getTime(caracter)
+{
+  var iMilliSecDateTime = (new Date()).getTime();
+  return(caracter + "time=" + iMilliSecDateTime);
+}
+
+function DatosModal(datos,txt_titulo,alto,ancho,cerrar) 
+{ 
+	var aleatorio = Math.random();
+	var objModal = document.getElementById('nombreContenido'); 
+	var ifralto = 480
+	if (alto & ancho) { var ifralto = alto } 
+	contenido = "<table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\"><tr><td>"
+	//contenido = contenido + "<table  bordercolor=\"#CFCFCF\" cellpadding=\"2\" cellspacing=\"0\" width=\"100%\" border=\"0\"><tr><td>"+(txt_titulo?"<h1><font color=\"#FFFFFF\">"+txt_titulo+"</font></h1>":"") +"</td><td width=\"1\" height=\"1\" align=\"right\"><a class=\"vinculo\" href = \"javascript:void(0)\" onclick=\"document.getElementById('nombreContenido').style.display='none'; document.getElementById('nombreContenedor').style.display='none';\"><img src=\"/imagenes/btn_cerrar.gif\" alt=\"Cerrar\" border=\"0\"></a></td></tr></table>";
+	//contenido = contenido + "<table  bordercolor=\"#CFCFCF\" cellpadding=\"2\" cellspacing=\"0\" width=\"100%\" border=\"0\"><tr><td width=\"100%\" bgcolor=\"#022263\">"+(txt_titulo?"<center><h1><font color=\"#FFFFFF\" >"+txt_titulo+"</font></h1><center>":"<h1>&nbsp;</h1>") +"</td><td width=\"1\" height=\"1\" align=\"right\"><a class=\"vinculo\" href = \"javascript:void(0)\" onclick=\"document.getElementById('nombreContenido').style.display='none'; document.getElementById('nombreContenedor').style.display='none';\"><table bgcolor=\"#FFFFFF\" cellpadding=\"0\" cellspacing=\"0\" width=\"1\" height=\"1\"><tr><td><font color=\"#FF0000\">&nbsp;X&nbsp;</font></td></tr></table></a></td></tr></table></td></tr>";
+	contenido = contenido + "<table  bordercolor=\"#CFCFCF\" cellpadding=\"2\" cellspacing=\"0\" width=\"100%\" border=\"0\"><tr><td width=\"100%\" bgcolor=\"#022263\">"+(txt_titulo?"<center><h1><font color=\"#FFFFFF\" >"+txt_titulo+"</font></h1><center>":"<h1>&nbsp;</h1>") +"</td></tr></table></td></tr>";
+	if (cerrar != 'NO') 
+	{ 
+	contenido = contenido + "<tr bgcolor=\"#FFFFFF\"><td><iframe scrolling='auto' width='100%' height='"+(ifralto-50)+"' name='modal' id='modal' frameborder='0' src='"+datos+"&nocahe="+aleatorio+"'>no frame</iframe></td></tr>"; 
+
+	contenido = contenido + "<tr bgcolor=\"#FFFFFF\"><td height=\"30px\"><center><input class=\"sbttn\" type=\"button\" onclick=\"document.getElementById('nombreContenido').style.display='none'; document.getElementById('nombreContenedor').style.display='none';\" value=\"Cerrar Ventana\"></center></td></tr>"
+	
+	} else {
+	contenido = contenido + "<tr bgcolor=\"#FFFFFF\"><td><iframe scrolling='auto' width='100%' height='"+(ifralto-20)+"' name='modal' id='modal' frameborder='0' src='"+datos+"&nocahe="+aleatorio+"'>no frame</iframe></td></tr>"; 
+	//contenido = contenido + "<tr bgcolor=\"#E8F4FF\"><td height=\"30px\"><center>&nbsp;</center></td></tr>"	
+	}
+	contenido = contenido + "</table>"
+    objModal.innerHTML = contenido;
+	objModal.style.top=null;
+  	objModal.style.left=null;
+  	objModal.style.right=null;
+	objModal.style.height=null;
+	objModal.style.marginTop=null;
+  	objModal.style.width=null;
+	objModal.style.marginLeft=null;
+
+	if (alto & ancho)
+	{
+		objModal.style.height=alto+'px';
+		objModal.style.marginTop='-'+(alto/2)+'px';
+	  	objModal.style.width=ancho+'px';
+		objModal.style.marginLeft='-'+(ancho/2)+'px';
+	}
+	
+	document.getElementById('nombreContenedor').style.display='block'; 
+	document.getElementById('nombreContenido').style.display='block';
+}
+
+//-->
+</script>
+</head>
+<body class="body">
+<div id="header">
+  <div id="header_logo">
+			
+				<img src="./Banco de Costa Rica_files/logo.gif" alt="BCR Banco_de_Costa_Rica" align="left">
+  			
+  </div>
+	<div id="header_col2">
+	    <div id="header_col2_botones_superiores">
+				
+                <a title="Inicio" href="https://www.personas.bancobcr.com/plantilla/index.asp" target="_self" onclick="ObtenerDatos(&#39;menu_sec_exten.asp?sm=0&#39;,&#39;content_menu&#39;);CambiarEstilo(&#39;btx&#39;,&#39;li&#39;,&#39;activo&#39;,&#39;inactivo&#39;);"><img src="./Banco de Costa Rica_files/btn_inicio.gif" alt="Inicio" width="41" height="31" border="0"></a>
+                <a title="Ayuda" href="http://www.bancobcr.com/acerca%20del%20bcr/Contactenos.html" target="_blank"><img src="./Banco de Costa Rica_files/btn_ayuda.gif" alt="Ayuda" width="41" height="31" border="0"></a>
+                <a title="Seguridad" href="http://www.bancobcr.com/personas/prevencion%20de%20fraude%20y%20seguridad%20en%20linea/" target="_blank"><img src="./Banco de Costa Rica_files/btn_seg.gif" alt="Seguridad" width="54" height="31" border="0"></a>
+                <a title="Novedades" href="http://www.bancobcr.com/novedades/" target="_blank"><img src="./Banco de Costa Rica_files/btn_news.gif" alt="Novedades" width="54" height="31" border="0"></a>            
+			
+		</div>
+		<div id="header_col2_tabs">
+			
+		</div>	
+	</div>
+</div>
+<div id="subheader">
+	<div id="subheader_red"></div>
+	<div id="subheader_line"></div>
+		
+				<div id="subheader_bg"><div id="subheader_imgs"><img src="./Banco de Costa Rica_files/subheader_title_oficinavirtual_52.gif" alt="Oficina Virtual" width="107" height="52"><img src="./Banco de Costa Rica_files/subheader_dotline_52.gif"><img src="./Banco de Costa Rica_files/subheader_title_personas_52.gif" alt="Personas"></div></div>
+		
+</div>
+<div id="menu_horizontal">
+	
+</div>
+<div id="content">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+      <td width="1%" valign="top"> 
+        <div id="content_menu">
+    
+		<iframe width="100%" height="230" name="ifrm2" id="ifrm2" frameborder="0" src="./Banco de Costa Rica_files/cookie_detect_ifrm.html" style="height: 618px; margin-top: 1px;">no frame</iframe>	   
+			
+	</div>
+</td>
+<td valign="top">
+	<!--<div id="content_subcontent">-->
+	<table width="99%" border="0" cellspacing="1" cellpadding="0" class="subcontent_table" align="center"><tbody><tr><td>
+
+	<iframe width="100%" height="100%" name="ifrm" id="ifrm" frameborder="0" src="./Banco de Costa Rica_files/cookie_detect_ifrm_info.html" style="width: 100%; height: 618px; margin-top: 1px;">no frame</iframe>	
+
+	</td></tr></tbody></table>	
+	<!--</div>-->
+	<script type="text/javascript">
+		function setIframe() {
+		  var theIframe = document.getElementById? document.getElementById('ifrm'): document.all? document.all['ifrm']: null;
+		  if (theIframe) {
+		    viewport.getWinHeight();
+		    theIframe.style.width = "100%";
+		    theIframe.style.height = viewport.height + "px";
+			theIframe.style.marginTop = 1 + "px";
+		  }
+		}
+		function setIframe2() {
+		  var theIframe = document.getElementById? document.getElementById('ifrm2'): document.all? document.all['ifrm2']: null;
+		  if (theIframe) {
+		    viewport.getWinHeight();
+		    //theIframe.style.width = "100%";
+		    theIframe.style.height = viewport.height + "px";
+			theIframe.style.marginTop = 1 + "px";
+		  }
+		}
+		setIframe();
+		setIframe2();
+		window.onresize = function() { setIframe() ;  setIframe2() }
+	</script>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+
+
+	<div id="footer"><font color="#666666">.63</font>&nbsp;&nbsp;BCR © Derechos Reservados 2018. Contáctenos: <a class="link_claro" href="mailto:CentroAsistenciaBCR@bancobcr.com">CentroAsistenciaBCR@bancobcr.com</a></div>
+
+
+<div id="nombreContenedor" class="black_overlay"></div>
+<div id="nombreContenido" class="modal_content">
+</div>
+  
+
+</body></html>
